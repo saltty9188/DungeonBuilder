@@ -11,6 +11,7 @@ namespace core {
     {
     public:
         MenuInterface(std::ostream &display, std::istream &input);
+        ~MenuInterface() = default;
         void displayWelcome(const std::string author, const std::string title) const;
         void run() const;
 
