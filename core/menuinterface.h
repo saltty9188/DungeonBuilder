@@ -2,6 +2,7 @@
 #define MENUINTERFACE_H
 
 #include <iostream>
+#include <string>
 
 namespace core {
 
@@ -11,11 +12,17 @@ namespace core {
     public:
         MenuInterface(std::ostream &display, std::istream &input);
         void displayWelcome(const std::string author, const std::string title) const;
-        void run();
+        void run() const;
 
     private:
         std::ostream &_display;
         std::istream &_input;
+
+        void displayMainMenu() const;
+        void generateRandomDungeon() const;
+        bool quitGame() const;
+        void displayViewMenu() const;
+        void displayExplorationMenu() const;
     };
 }
 
