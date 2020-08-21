@@ -161,7 +161,7 @@ void MenuInterface::generateRandomDungeon() const {
 bool MenuInterface::quitGame() const {
     // Want menu to stay looping until valid input is received
     while(true) {
-        _display << "\n*Are you sure you want to quit? (y/n) *" << std::endl;
+        _display << "\n*Are you sure you want to quit? (y/n)*" << std::endl;
         std::string userInput{};
         _input >> userInput;
         switch(userInput.at(0)) {
@@ -188,6 +188,7 @@ bool MenuInterface::quitGame() const {
  * and for the user to return to the previous menu.
  */
 void MenuInterface::displayViewMenu() const {
+    // Loop until we return to the previous menu
     while(true) {
         _display << "\n What would you like to do?" << std::endl;
         _display << "    (d)escribe the dungeon level" << std::endl;
@@ -199,7 +200,7 @@ void MenuInterface::displayViewMenu() const {
         case 'd':
         case 'D':
             _display << "\nDisplaying dungeon info." << std::endl;
-            //displayExplorationMenu();
+            displayExplorationMenu();
             break;
 
         case 'v':
@@ -219,4 +220,66 @@ void MenuInterface::displayViewMenu() const {
             _display << "Invalid input, enter a valid option." << std::endl;
         }
     }
+}
+
+/**
+ * @brief Displays the exploration menu.
+ *
+ * Allows the user to describe a room in the dungeon or return
+ * to the previous menu.
+ */
+void MenuInterface::displayExplorationMenu() const {
+    while(true) {
+        _display << "\nWhat would you like to do?" << std::endl;
+        _display << "    (d)escribe a room" << std::endl;
+        _display << "    (r)eturn to previous menu" << std::endl;
+        std::string userInput{};
+        _input >> userInput;
+        switch(userInput.at(0)) {
+        case 'd':
+        case 'D':
+            describeRoom();
+            break;
+
+        case 'r':
+        case 'R':
+            _display << "\nReturning to view menu" << std::endl;
+            return;
+
+        default:
+            _display << "\nInvalid input, enter a valid option." << std::endl;
+        }
+    }
+}
+
+/**
+ * @brief Describes a room in the dungeon specified by the user.
+ */
+void MenuInterface::describeRoom() const {
+    bool selecting{true};
+    // Want to loop until the user inputs a valid room number.
+    while(selecting) {
+        _display << "\nWhich room would you like to describe? (1-MAX)" << std::endl;
+        //use max as 4 for now
+        std::string roomNumberString{};
+        _input >> roomNumberString;
+        int roomNumber{};
+        try {
+            roomNumber = std::stoi(roomNumberString);
+            if(roomNumber >= 1 && roomNumber <= 4) {
+                _display << "\nDisplaying room info..." << std::endl;
+                //Put real display stuff
+                _display << "\n*Press Enter to continue*" << std::endl;
+                _input.ignore();
+                _input.get();
+                selecting = false;
+            } else {
+                _display << "\nEnter a valid room number." << std::endl;
+            }
+
+        } catch (std::invalid_argument const &e) {
+            _display << "\nInvalid input. Enter an integer value." << std::endl;
+        }
+    }
+
 }

@@ -23,6 +23,7 @@ namespace core {
         bool quitGame() const;
         void displayViewMenu() const;
         void displayExplorationMenu() const;
+        void describeRoom() const;
     };
 }
 
