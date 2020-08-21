@@ -54,13 +54,13 @@ void MenuInterface::displayMainMenu() const {
             _display << "\nCreating Example Dungeon Level..." << std::endl;
             //TODO: Generate example dungeon here
             _display << "Dungeon level created!" << std::endl;
-            //displayViewMenu();
+            displayViewMenu();
             break;
 
         case 'r':
         case 'R':
             generateRandomDungeon();
-            //displayViewMenu();
+            displayViewMenu();
             break;
 
         case 'q':
@@ -176,6 +176,47 @@ bool MenuInterface::quitGame() const {
 
         default:
             _display << "\nInvalid input, enter valid input." << std::endl;
+        }
+    }
+}
+
+/**
+ * @brief Displays view menu for the current dungeon.
+ *
+ * Allows the user to get a description for the current level, and proceed to
+ * the exploration menu. Also allows for a visual representation of the current dungeon,
+ * and for the user to return to the previous menu.
+ */
+void MenuInterface::displayViewMenu() const {
+    while(true) {
+        _display << "\n What would you like to do?" << std::endl;
+        _display << "    (d)escribe the dungeon level" << std::endl;
+        _display << "    (v)iew the dungeon level" << std::endl;
+        _display << "    (r)eturn to the main menu" << std::endl;
+        std::string userInput{};
+        _input >> userInput;
+        switch (userInput.at(0)) {
+        case 'd':
+        case 'D':
+            _display << "\nDisplaying dungeon info." << std::endl;
+            //displayExplorationMenu();
+            break;
+
+        case 'v':
+        case 'V':
+            _display << "\nShowing the view output" << std::endl;
+            _display << "\n*Press Enter to continue*" << std::endl;
+            _input.ignore();
+            _input.get();
+            break;
+
+        case 'r':
+        case 'R':
+            _display << "\nReturning to main menu" << std::endl;
+            return;
+
+        default:
+            _display << "Invalid input, enter a valid option." << std::endl;
         }
     }
 }
