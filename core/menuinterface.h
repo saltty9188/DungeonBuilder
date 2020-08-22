@@ -5,8 +5,6 @@
 #include <string>
 
 namespace core {
-
-
     class MenuInterface
     {
     public:
