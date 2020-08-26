@@ -2,11 +2,13 @@
 #define GAME_H
 
 #include <string>
+#include <memory>
+
 namespace core {
     class Game
     {
     public:
-        static Game * instance();
+        static Game & instance();
 
         void setDungeonType(); //add param later
         void createExampleLevel();
@@ -18,9 +20,7 @@ namespace core {
         Game & operator=(const Game &other) = delete;
     private:
         Game();
-        static Game *_theInstance;
-
-
+        static std::unique_ptr<Game> _theInstance;
     };
 }
 

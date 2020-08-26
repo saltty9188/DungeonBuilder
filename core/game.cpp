@@ -1,6 +1,7 @@
 #include "game.h"
 #include <random>
 #include <ctime>
+#include <iostream>
 
 using namespace core;
 
@@ -10,19 +11,19 @@ std::uniform_real_distribution<double> _realDistribution{0.0, 1.0}; //!< For ran
 
 Game::Game()
 {
-
+    std::cout << "E" << std::endl;
 }
 
 /**
  * @brief Gets the instance of the Game class.
  * @return The instance of the Game class.
  */
-Game * Game::instance() {
+Game & Game::instance() {
     if(_theInstance == nullptr) {
-        Game::_theInstance = new Game;
+        Game::_theInstance.reset(new Game);
     }
 
-    return _theInstance;
+    return *_theInstance;
 }
 
 /**
@@ -33,5 +34,6 @@ double Game::randomDouble() {
   return _realDistribution(_randomGenerator);
 }
 
+std::unique_ptr<Game> Game::_theInstance{};
 
 
