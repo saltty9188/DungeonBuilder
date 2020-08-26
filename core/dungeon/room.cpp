@@ -1,6 +1,8 @@
 #include "room.h"
 
-Room::Room()
+using namespace core::dungeon;
+
+Room::Room(int id): _id{id}
 {
 
 }

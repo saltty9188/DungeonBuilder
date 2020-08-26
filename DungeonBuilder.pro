@@ -4,6 +4,7 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        core/dungeon/doorway.cpp \
         core/dungeon/room.cpp \
         core/dungeon/roomedge.cpp \
         core/game.cpp \
@@ -11,6 +12,7 @@ SOURCES += \
         main.cpp
 
 HEADERS += \
+    core/dungeon/doorway.h \
     core/dungeon/room.h \
     core/dungeon/roomedge.h \
     core/game.h \
