@@ -11,7 +11,7 @@ namespace core::dungeon {
         bool _exit;
     public:
         Doorway();
-        ~Doorway();
+        virtual ~Doorway();
         //void connect(Doorway oppositeDoor);
         bool isEntrance();
         bool isExit();
