@@ -10,9 +10,9 @@ namespace core::dungeon {
         bool _entrance;
         bool _exit;
     public:
-        Doorway();
+        Doorway(Room &parent);
         virtual ~Doorway();
-        //void connect(Doorway oppositeDoor);
+        void connect(Doorway &oppositeDoor);
         bool isEntrance();
         bool isExit();
         void setAsEntrance();

@@ -2,7 +2,7 @@
 
 using namespace core::dungeon;
 
-Doorway::Doorway(): _opposite{nullptr}, _entrance{false}, _exit{false}
+Doorway::Doorway(Room &parent): _opposite{nullptr}, _entrance{false}, _exit{false}, RoomEdge{parent}
 {
 
 }
