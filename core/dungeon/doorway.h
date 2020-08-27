@@ -6,9 +6,6 @@
 namespace core::dungeon {
     class Doorway : public RoomEdge
     {
-        Doorway * _opposite;
-        bool _entrance;
-        bool _exit;
     public:
         Doorway(Room &parent);
         virtual ~Doorway();
@@ -17,6 +14,10 @@ namespace core::dungeon {
         bool isExit();
         void setAsEntrance();
         void setAsExit();
+    private:
+        Doorway * _opposite;
+        bool _entrance;
+        bool _exit;
     };
 }
 

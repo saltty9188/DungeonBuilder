@@ -41,3 +41,8 @@ void Doorway::setAsExit() {
 void Doorway::setAsEntrance() {
     _entrance = true;
 }
+
+void Doorway::connect(Doorway &oppositeDoor) {
+    _opposite = &oppositeDoor;
+    oppositeDoor._opposite = this;
+}

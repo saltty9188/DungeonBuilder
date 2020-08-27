@@ -8,33 +8,40 @@ OneWayDoor::OneWayDoor(Room &parent): Doorway{parent}
 
 }
 
+/**
+ * @brief Returns the description of this doorway.
+ * @return Returns the description of this doorway.
+ */
 std::string OneWayDoor::description() const {
+    return "an exit (One-Way Door) from another chamber";
+}
 
+/**
+ * @brief Returns the character displayed in the dungeon view output.
+ *
+ * The character returned by this function is dependant on the direction
+ * in the parent Room that this doorway occupies.
+ *
+ * @return The character displayed in the dungeon view output.
+ */
+char OneWayDoor::displayCharacter() const {
     Room::Direction direction{parent()->getDirection(*this)};
 
     switch(direction) {
     case Room::Direction::North:
-
-        return "To the NORTH is an Exit (One-Way Door) from another chamber.";
+        return 'v';
 
     case Room::Direction::East:
-
-        return "To the EAST is an Exit (One-Way Door) from another chamber.";
+        return '<';
 
     case Room::Direction::South:
-
-        return "To the SOUTH is an Exit (One-Way Door) from another chamber.";
+        return '^';
 
     case Room::Direction::West:
-
-        return "To the WEST is an Exit (One-Way Door) from another chamber.";
+        return '>';
     }
 
-    return "";
-}
-
-char OneWayDoor::displayCharacter() const {
-    return 'c';
+    return ' ';
 }
 
 bool OneWayDoor::isPassage() const {
