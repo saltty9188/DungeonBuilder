@@ -5,6 +5,7 @@ CONFIG -= qt
 
 SOURCES += \
         core/dungeon/common/blockeddoorway.cpp \
+        core/dungeon/common/lockeddoor.cpp \
         core/dungeon/common/onewaydoor.cpp \
         core/dungeon/common/opendoorway.cpp \
         core/dungeon/doorway.cpp \
@@ -16,6 +17,7 @@ SOURCES += \
 
 HEADERS += \
     core/dungeon/common/blockeddoorway.h \
+    core/dungeon/common/lockeddoor.h \
     core/dungeon/common/onewaydoor.h \
     core/dungeon/common/opendoorway.h \
     core/dungeon/doorway.h \
