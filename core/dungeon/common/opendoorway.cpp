@@ -1,9 +1,9 @@
-#include "onewaydoor.h"
+#include "opendoorway.h"
 #include "../room.h"
 
 using namespace core::dungeon::common;
 
-OneWayDoor::OneWayDoor(Room &parent): Doorway{parent}
+OpenDoorway::OpenDoorway(Room &parent): Doorway{parent}
 {
 
 }
@@ -12,8 +12,8 @@ OneWayDoor::OneWayDoor(Room &parent): Doorway{parent}
  * @brief Returns the description of this doorway.
  * @return Returns the description of this doorway.
  */
-std::string OneWayDoor::description() const {
-    return "an exit (One-Way Door) from another chamber.";
+std::string OpenDoorway::description() const {
+    return "an Open Doorway to another chamber.";
 }
 
 /**
@@ -24,26 +24,26 @@ std::string OneWayDoor::description() const {
  *
  * @return The character displayed in the dungeon view output.
  */
-char OneWayDoor::displayCharacter() const {
+char OpenDoorway::displayCharacter() const {
     Room::Direction direction{parent()->getDirection(*this)};
 
     switch(direction) {
     case Room::Direction::North:
-        return 'v';
-
-    case Room::Direction::East:
-        return '<';
-
-    case Room::Direction::South:
         return '^';
 
-    case Room::Direction::West:
+    case Room::Direction::East:
         return '>';
+
+    case Room::Direction::South:
+        return 'v';
+
+    case Room::Direction::West:
+        return '<';
     }
 
     return ' ';
 }
 
-bool OneWayDoor::isPassage() const {
-    return false;
+bool OpenDoorway::isPassage() const {
+    return true;
 }
