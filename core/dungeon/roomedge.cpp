@@ -8,7 +8,7 @@ RoomEdge::RoomEdge(Room &parent): _parent{&parent}
 
 }
 
-std::shared_ptr<Room> RoomEdge::parent() const {
+std::weak_ptr<Room> RoomEdge::parent() const {
     return _parent;
 }
 
