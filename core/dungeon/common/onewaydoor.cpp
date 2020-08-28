@@ -38,7 +38,6 @@ char OneWayDoor::displayCharacter() const {
     case Room::Direction::West:
         return '>';
     }
-    return ' ';
 }
 
 bool OneWayDoor::isPassage() const {

@@ -11,6 +11,7 @@ SOURCES += \
         core/dungeon/doorway.cpp \
         core/dungeon/room.cpp \
         core/dungeon/roomedge.cpp \
+        core/dungeon/wall.cpp \
         core/game.cpp \
         core/menuinterface.cpp \
         main.cpp
@@ -23,5 +24,6 @@ HEADERS += \
     core/dungeon/doorway.h \
     core/dungeon/room.h \
     core/dungeon/roomedge.h \
+    core/dungeon/wall.h \
     core/game.h \
     core/menuinterface.h

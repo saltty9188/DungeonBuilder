@@ -38,7 +38,6 @@ char OpenDoorway::displayCharacter() const {
     case Room::Direction::West:
         return '<';
     }
-    return ' ';
 }
 
 bool OpenDoorway::isPassage() const {
