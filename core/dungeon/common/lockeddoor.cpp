@@ -4,7 +4,7 @@
 using namespace core::dungeon::common;
 
 
-LockedDoor::LockedDoor(Room &parent): Doorway{parent}
+LockedDoor::LockedDoor(): Doorway{}
 {
 
 }

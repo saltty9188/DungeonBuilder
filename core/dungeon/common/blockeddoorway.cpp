@@ -1,7 +1,7 @@
 #include "blockeddoorway.h"
 using namespace core::dungeon::common;
 
-BlockedDoorway::BlockedDoorway(Room &parent): Doorway{parent}
+BlockedDoorway::BlockedDoorway(): Doorway{}
 {
 
 }

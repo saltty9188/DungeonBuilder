@@ -2,23 +2,22 @@
 #define ROOMEDGE_H
 
 #include <string>
-#include <memory>
+#include "room.h"
 
 namespace core::dungeon {
-    class Room;
-
     class RoomEdge
     {
     public:
-        RoomEdge(Room &parent);
+        RoomEdge();
         virtual ~RoomEdge() = default;
         virtual std::string description() const = 0;
         virtual char displayCharacter() const = 0;
         virtual bool isPassage() const = 0;
+        void setDirection(Room::Direction direction);
     protected:
-        std::weak_ptr<Room> parent() const;
+        Room::Direction direction() const;
     private:
-        std::weak_ptr<Room> _parent;
+        Room::Direction _direction;
     };
 }
 

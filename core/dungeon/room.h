@@ -5,9 +5,9 @@
 #include <vector>
 #include <array>
 #include <memory>
-#include "roomedge.h"
 
 namespace core::dungeon {
+    class RoomEdge;
     class Room
     {
     public:
@@ -18,10 +18,8 @@ namespace core::dungeon {
         int id() const;
         //item and setItem
         //creature and setCreature
-        enum class Direction {North, South, East, West};
+        enum class Direction : unsigned {North, South, East, West};
         void setEdge(const Direction &direction, RoomEdge &roomEdge);
-        Direction getDirection(const RoomEdge &roomEdge) const;
-
         std::array<std::unique_ptr<RoomEdge>, 4> _edges;
     private:
         int _id;

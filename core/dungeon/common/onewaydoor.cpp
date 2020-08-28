@@ -3,7 +3,7 @@
 
 using namespace core::dungeon::common;
 
-OneWayDoor::OneWayDoor(Room &parent): Doorway{parent}
+OneWayDoor::OneWayDoor(): Doorway{}
 {
 
 }
@@ -25,22 +25,18 @@ std::string OneWayDoor::description() const {
  * @return The character displayed in the dungeon view output.
  */
 char OneWayDoor::displayCharacter() const {
-    // Parent should never be null but just in case do a check
-    if(std::shared_ptr<Room> temp = parent().lock()) {
-        Room::Direction direction{temp->getDirection(*this)};
-        switch(direction) {
-        case Room::Direction::North:
-            return 'v';
+    switch(direction()) {
+    case Room::Direction::North:
+        return 'v';
 
-        case Room::Direction::East:
-            return '<';
+    case Room::Direction::East:
+        return '<';
 
-        case Room::Direction::South:
-            return '^';
+    case Room::Direction::South:
+        return '^';
 
-        case Room::Direction::West:
-            return '>';
-        }
+    case Room::Direction::West:
+        return '>';
     }
     return ' ';
 }

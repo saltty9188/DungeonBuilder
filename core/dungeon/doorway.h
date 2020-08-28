@@ -7,7 +7,7 @@ namespace core::dungeon {
     class Doorway : public RoomEdge
     {
     public:
-        Doorway(Room &parent);
+        Doorway();
         virtual ~Doorway();
         void connect(Doorway &oppositeDoor);
         bool isEntrance();

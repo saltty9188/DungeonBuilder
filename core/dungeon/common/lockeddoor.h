@@ -6,7 +6,7 @@ namespace core::dungeon::common {
 class LockedDoor : public Doorway
 {
 public:
-    LockedDoor(Room &parent);
+    LockedDoor();
     virtual ~LockedDoor() = default;
     virtual std::string description() const override;
     virtual char displayCharacter() const override;
