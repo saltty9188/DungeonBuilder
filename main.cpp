@@ -22,7 +22,7 @@ int main()
     room.setEdge(Room::Direction::North, std::make_shared<OpenDoorway>());
     room.setEdge(Room::Direction::West, std::make_shared<BlockedDoorway>());
 
-    cout << room.description() << std::endl;
+    cout << room << std::endl;
 
     return 0;
 

@@ -41,7 +41,7 @@ void Room::setEdge(const Direction &direction, std::shared_ptr<RoomEdge> roomEdg
  * @param direction The Direction of the Room Edge to be retrieved.
  * @return A shared pointer to the Room Edge at the given Direction.
  */
-std::shared_ptr<RoomEdge> Room::edge(const Direction direction) {
+std::shared_ptr<RoomEdge> Room::edge(const Direction direction) const {
     switch(direction) {
     case Room::Direction::North:
         return _edges[0];
@@ -59,4 +59,33 @@ std::shared_ptr<RoomEdge> Room::edge(const Direction direction) {
         return _edges[3];
         break;
     }
+}
+
+std::array<std::string, 5> Room::display() const {
+    std::array<std::string, 5> returnArray{};
+    returnArray[0] = "+----";
+    returnArray[0].push_back(edge(Room::Direction::North)->displayCharacter());
+    returnArray[0].append("----+");
+
+    returnArray[1] = "|         |";
+
+    returnArray[2].push_back(edge(Room::Direction::West)->displayCharacter());
+    returnArray[2].append("   ");
+    //REPLACE WITH MONSTER/ITEM STUFF
+    returnArray[2].append("   ");
+    returnArray[2].append("   ");
+    returnArray[2].push_back(edge(Room::Direction::East)->displayCharacter());
+
+    returnArray[3] = "|         |";
+
+    returnArray[4] = "+----";
+    returnArray[4].push_back(edge(Room::Direction::South)->displayCharacter());
+    returnArray[4].append("----+");
+
+    return returnArray;
+}
+
+std::ostream& core::dungeon::operator<< (std::ostream &out, const Room &room) {
+    out << room.description();
+    return out;
 }

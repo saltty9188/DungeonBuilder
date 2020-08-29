@@ -16,7 +16,7 @@ RockChamber::RockChamber(int id): Room{id}
     setEdge(Room::Direction::West, std::make_shared<RockWall>());
 }
 
-std::string RockChamber::description() {
+std::string RockChamber::description() const {
     std::string returnString{"A dank and cold cave. (Rock Chamber)\n"};
     returnString.append("To the NORTH is " + edge(Room::Direction::North)->description() + "\n");
     returnString.append("To the EAST is " + edge(Room::Direction::East)->description() + "\n");
