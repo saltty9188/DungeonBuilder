@@ -20,6 +20,7 @@ SOURCES += \
         core/dungeon/roomedge.cpp \
         core/dungeon/wall.cpp \
         core/game.cpp \
+        core/items/item.cpp \
         core/menuinterface.cpp \
         main.cpp
 
@@ -40,4 +41,5 @@ HEADERS += \
     core/dungeon/roomedge.h \
     core/dungeon/wall.h \
     core/game.h \
+    core/items/item.h \
     core/menuinterface.h
