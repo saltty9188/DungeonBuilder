@@ -21,6 +21,7 @@ SOURCES += \
         core/dungeon/wall.cpp \
         core/game.cpp \
         core/items/item.cpp \
+        core/items/weapon.cpp \
         core/menuinterface.cpp \
         main.cpp
 
@@ -42,4 +43,5 @@ HEADERS += \
     core/dungeon/wall.h \
     core/game.h \
     core/items/item.h \
+    core/items/weapon.h \
     core/menuinterface.h
