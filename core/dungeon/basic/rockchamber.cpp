@@ -21,7 +21,12 @@ std::string RockChamber::description() const {
     returnString.append("To the EAST is " + edge(Room::Direction::East)->description() + "\n");
     returnString.append("To the SOUTH is " + edge(Room::Direction::South)->description() + "\n");
     returnString.append("To the WEST is " + edge(Room::Direction::West)->description());
-    // Creature and item
+    if(creature()) {
+        returnString.append("\nThere is a " + creature()->name() + " to fight.");
+    }
+    if(item()) {
+        returnString.append("\nThere is a " + item()->name() + " to pick up.");
+    }
 
     return returnString;
 }

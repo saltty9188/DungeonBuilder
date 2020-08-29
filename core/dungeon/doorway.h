@@ -10,8 +10,8 @@ namespace core::dungeon {
         Doorway();
         virtual ~Doorway();
         void connect(Doorway &oppositeDoor);
-        bool isEntrance();
-        bool isExit();
+        bool isEntrance() const;
+        bool isExit() const;
         void setAsEntrance();
         void setAsExit();
         virtual bool isPassage() const override;

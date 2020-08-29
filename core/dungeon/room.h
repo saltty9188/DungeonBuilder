@@ -5,6 +5,11 @@
 #include <vector>
 #include <array>
 #include <memory>
+#include "../creatures/abstractcreature.h"
+#include "../items/item.h"
+
+using core::items::Item;
+using core::creatures::AbstractCreature;
 
 namespace core::dungeon {
     class RoomEdge;
@@ -13,19 +18,24 @@ namespace core::dungeon {
     public:
         Room(int id);
         virtual ~Room() = default;
+
         virtual std::string description() const = 0;
         std::array<std::string, 5> display() const;
         int id() const;
-        //item and setItem
-        //creature and setCreature
+        std::shared_ptr<Item> item() const;
+        void setItem(std::shared_ptr<Item> newItem);
+        std::shared_ptr<AbstractCreature> creature() const;
+        void setCreature(std::shared_ptr<AbstractCreature> newCreature);
+
         enum class Direction : unsigned {North, South, East, West};
         void setEdge(const Direction &direction, std::shared_ptr<RoomEdge> roomEdge);
-
-    //protected:
         std::shared_ptr<RoomEdge> edge(const Direction direction) const;
     private:
         int _id;
+        std::shared_ptr<Item> _item;
+        std::shared_ptr<AbstractCreature> _creature;
         std::array<std::shared_ptr<RoomEdge>, 4> _edges;
+        bool hasExit() const;
 
     };
 

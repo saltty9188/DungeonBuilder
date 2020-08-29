@@ -16,7 +16,7 @@ Doorway::~Doorway() {
  * @brief Returns true if this doorway is the exit to the dungeon.
  * @return True if this doorway is the exit to the dungeon.
  */
-bool Doorway::isExit() {
+bool Doorway::isExit() const {
     return _exit;
 }
 
@@ -24,7 +24,7 @@ bool Doorway::isExit() {
  * @brief Returns true if this doorway is the entrance to the dungeon.
  * @return True if this doorway is the entrance to the dungeon.
  */
-bool Doorway::isEntrance() {
+bool Doorway::isEntrance() const {
     return _entrance;
 }
 

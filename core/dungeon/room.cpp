@@ -9,6 +9,50 @@ Room::Room(int id): _id{id}, _edges{}
 }
 
 /**
+ * @brief Returns the item contained within this room.
+ * @return The item contained within this room.
+ */
+std::shared_ptr<Item> Room::item() const {
+    return _item;
+}
+
+/**
+ * @brief Sets the Item contained within this Room to be the given Item.
+ * @param newItem The Item to be put in this Room.
+ */
+void Room::setItem(std::shared_ptr<Item> newItem) {
+    _item = newItem;
+}
+
+/**
+ * @brief Returns the Creature contained within this room.
+ * @return The Creature contained within this room.
+ */
+std::shared_ptr<AbstractCreature> Room::creature() const {
+    return _creature;
+}
+
+/**
+ * @brief Sets the Creature contained within this Room to be the given Creature.
+ * @param newCreature The Creature to be put in this Room.
+ */
+void Room::setCreature(std::shared_ptr<AbstractCreature> newCreature) {
+    _creature = newCreature;
+}
+
+bool Room::hasExit() const {
+    for (auto edge : _edges) {
+        if(edge->isPassage()) {
+            std::shared_ptr<Doorway> temp = std::dynamic_pointer_cast<Doorway>(edge);
+            if(temp->isExit()) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+/**
  * @brief Sets the edge at the given Direction to the given Room Edge.
  * @param direction The Direction of the edge to be set.
  * @param roomEdge  The Room Edge being set.
@@ -71,8 +115,10 @@ std::array<std::string, 5> Room::display() const {
 
     returnArray[2].push_back(edge(Room::Direction::West)->displayCharacter());
     returnArray[2].append("   ");
-    //REPLACE WITH MONSTER/ITEM STUFF
-    returnArray[2].append("   ");
+
+    returnArray[2].push_back((creature() ? 'M' : ' '));
+    returnArray[2].push_back((hasExit() ? '*' : ' '));
+    returnArray[2].push_back((item() ? 'L' : ' '));
 
     returnArray[2].append("   ");
     returnArray[2].push_back(edge(Room::Direction::East)->displayCharacter());
