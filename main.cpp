@@ -1,7 +1,7 @@
 #include <iostream>
 #include "core/menuinterface.h"
 #include "core/dungeon/room.h"
-#include "core/dungeon/basic/rockchamber.h"
+#include "core/dungeon/basic/quartzchamber.h"
 #include "core/dungeon/common/opendoorway.h"
 #include "core/dungeon/common/blockeddoorway.h"
 
@@ -17,7 +17,7 @@ int main()
 //    menuInterface.displayWelcome("Ty Salter", "Dungeon Builder");
 //    menuInterface.run();
 
-    RockChamber room{1};
+    QuartzChamber room{1};
 
     room.setEdge(Room::Direction::North, std::make_shared<OpenDoorway>());
     room.setEdge(Room::Direction::West, std::make_shared<BlockedDoorway>());

@@ -1,12 +1,10 @@
-#include "rockchamber.h"
-#include "../roomedge.h"
+#include "quartzchamber.h"
 #include "rockwall.h"
-
+#include "../roomedge.h"
 
 using namespace core::dungeon::basic;
 
-
-RockChamber::RockChamber(int id): Room{id}
+QuartzChamber::QuartzChamber(int id): Room{id}
 {
     // Initialise each edge to be a Rock Wall
     setEdge(Room::Direction::North, std::make_shared<RockWall>());
@@ -15,8 +13,9 @@ RockChamber::RockChamber(int id): Room{id}
     setEdge(Room::Direction::West, std::make_shared<RockWall>());
 }
 
-std::string RockChamber::description() const {
-    std::string returnString{"A dank and cold cave. (Rock Chamber)\n"};
+std::string QuartzChamber::description() const {
+
+    std::string returnString{"A beautifully crystalline chamber illuminated by the light of your torch. (Quartz Chamber)\n"};
     returnString.append("To the NORTH is " + edge(Room::Direction::North)->description() + "\n");
     returnString.append("To the EAST is " + edge(Room::Direction::East)->description() + "\n");
     returnString.append("To the SOUTH is " + edge(Room::Direction::South)->description() + "\n");
