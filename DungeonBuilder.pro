@@ -4,6 +4,8 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        core/dungeon/basic/rockchamber.cpp \
+        core/dungeon/basic/rockwall.cpp \
         core/dungeon/common/blockeddoorway.cpp \
         core/dungeon/common/lockeddoor.cpp \
         core/dungeon/common/onewaydoor.cpp \
@@ -17,6 +19,8 @@ SOURCES += \
         main.cpp
 
 HEADERS += \
+    core/dungeon/basic/rockchamber.h \
+    core/dungeon/basic/rockwall.h \
     core/dungeon/common/blockeddoorway.h \
     core/dungeon/common/lockeddoor.h \
     core/dungeon/common/onewaydoor.h \
