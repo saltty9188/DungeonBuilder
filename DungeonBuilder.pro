@@ -5,6 +5,7 @@ CONFIG -= qt
 
 SOURCES += \
         core/creatures/abstractcreature.cpp \
+        core/creatures/monster.cpp \
         core/dungeon/basic/basicdungeonlevel.cpp \
         core/dungeon/basic/quartzchamber.cpp \
         core/dungeon/basic/rockchamber.cpp \
@@ -24,6 +25,7 @@ SOURCES += \
 
 HEADERS += \
     core/creatures/abstractcreature.h \
+    core/creatures/monster.h \
     core/dungeon/basic/basicdungeonlevel.h \
     core/dungeon/basic/quartzchamber.h \
     core/dungeon/basic/rockchamber.h \

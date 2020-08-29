@@ -11,7 +11,7 @@ namespace core::creatures {
         AbstractCreature(std::string name);
         virtual ~AbstractCreature() = default;
 
-        virtual std::shared_ptr<AbstractCreature> clone() = 0;
+        virtual std::shared_ptr<AbstractCreature> clone() const = 0;
         std::string name() const;
         char displayCharacter() const;
     private:
