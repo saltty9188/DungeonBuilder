@@ -19,7 +19,7 @@ namespace core::dungeon {
         //item and setItem
         //creature and setCreature
         enum class Direction : unsigned {North, South, East, West};
-        void setEdge(const Direction &direction, RoomEdge *roomEdge);
+        void setEdge(const Direction &direction, std::shared_ptr<RoomEdge> roomEdge);
 
     //protected:
         std::shared_ptr<RoomEdge> edge(const Direction direction);

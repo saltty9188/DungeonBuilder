@@ -13,24 +13,24 @@ Room::Room(int id): _id{id}, _edges{}
  * @param direction The Direction of the edge to be set.
  * @param roomEdge  The Room Edge being set.
  */
-void Room::setEdge(const Direction &direction, RoomEdge *roomEdge) {
+void Room::setEdge(const Direction &direction, std::shared_ptr<RoomEdge> roomEdge) {
     if(roomEdge) {
         roomEdge->setDirection(direction);
         switch(direction) {
         case Room::Direction::North:
-            _edges[0].reset(roomEdge);
+            _edges[0] = roomEdge;
             break;
 
         case Room::Direction::East:
-            _edges[1].reset(roomEdge);
+            _edges[1] = roomEdge;
             break;
 
         case Room::Direction::South:
-            _edges[2].reset(roomEdge);
+            _edges[2] = roomEdge;
             break;
 
         case Room::Direction::West:
-            _edges[3].reset(roomEdge);
+            _edges[3] = roomEdge;
             break;
         }
     }

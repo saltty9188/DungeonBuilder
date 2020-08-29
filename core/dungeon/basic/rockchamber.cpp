@@ -10,10 +10,10 @@ using namespace core::dungeon::basic;
 RockChamber::RockChamber(int id): Room{id}
 {
     // Initialise each edge to be a Rock Wall
-    setEdge(Room::Direction::North, new RockWall);
-    setEdge(Room::Direction::East, new RockWall);
-    setEdge(Room::Direction::South, new RockWall);
-    setEdge(Room::Direction::West, new RockWall);
+    setEdge(Room::Direction::North, std::make_shared<RockWall>());
+    setEdge(Room::Direction::East, std::make_shared<RockWall>());
+    setEdge(Room::Direction::South, std::make_shared<RockWall>());
+    setEdge(Room::Direction::West, std::make_shared<RockWall>());
 }
 
 std::string RockChamber::description() {

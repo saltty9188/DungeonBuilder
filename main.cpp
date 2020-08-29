@@ -19,11 +19,8 @@ int main()
 
     RockChamber room{1};
 
-    OpenDoorway o1{};
-    BlockedDoorway o2{};
-
-    room.setEdge(Room::Direction::North, &o1);
-    room.setEdge(Room::Direction::West, &o2);
+    room.setEdge(Room::Direction::North, std::make_shared<OpenDoorway>());
+    room.setEdge(Room::Direction::West, std::make_shared<BlockedDoorway>());
 
     cout << room.description() << std::endl;
 
