@@ -39,7 +39,3 @@ char OpenDoorway::displayCharacter() const {
         return '<';
     }
 }
-
-bool OpenDoorway::isPassage() const {
-    return true;
-}

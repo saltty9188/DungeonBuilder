@@ -46,3 +46,7 @@ void Doorway::connect(Doorway &oppositeDoor) {
     _opposite = &oppositeDoor;
     oppositeDoor._opposite = this;
 }
+
+bool Doorway::isPassage() const {
+    return true;
+}

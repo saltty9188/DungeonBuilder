@@ -22,6 +22,3 @@ char BlockedDoorway::displayCharacter() const {
     return 'X';
 }
 
-bool BlockedDoorway::isPassage() const {
-    return false;
-}

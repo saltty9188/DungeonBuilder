@@ -85,6 +85,10 @@ std::array<std::string, 5> Room::display() const {
     return returnArray;
 }
 
+int Room::id() const {
+    return _id;
+}
+
 std::ostream& core::dungeon::operator<< (std::ostream &out, const Room &room) {
     out << room.description();
     return out;

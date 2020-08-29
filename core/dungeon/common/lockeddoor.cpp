@@ -24,7 +24,3 @@ std::string LockedDoor::description() const {
 char LockedDoor::displayCharacter() const {
     return '@';
 }
-
-bool LockedDoor::isPassage() const {
-    return true;
-}
