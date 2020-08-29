@@ -12,17 +12,20 @@ namespace core::dungeon {
     {
     public:
         Room(int id);
-        ~Room() = default;
-       // virtual std::string description() const = 0;
-        std::vector<std::string> display() const;
+        virtual ~Room() = default;
+        virtual std::string description() = 0;
+        std::array<std::string, 5> display() const;
         int id() const;
         //item and setItem
         //creature and setCreature
         enum class Direction : unsigned {North, South, East, West};
-        void setEdge(const Direction &direction, RoomEdge &roomEdge);
-        std::array<std::unique_ptr<RoomEdge>, 4> _edges;
+        void setEdge(const Direction &direction, RoomEdge *roomEdge);
+
+    //protected:
+        std::shared_ptr<RoomEdge> edge(const Direction direction);
     private:
         int _id;
+        std::array<std::shared_ptr<RoomEdge>, 4> _edges;
 
     };
 }
