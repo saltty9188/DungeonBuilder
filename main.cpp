@@ -6,7 +6,7 @@
 #include "core/dungeon/basic/rockwall.h"
 #include "core/dungeon/common/opendoorway.h"
 #include "core/dungeon/common/blockeddoorway.h"
-#include "core/dungeon/dungeonlevel.h"
+#include "core/dungeon/basic/basicdungeonlevel.h"
 
 using namespace std;
 
@@ -20,7 +20,7 @@ int main()
 //    menuInterface.displayWelcome("Ty Salter", "Dungeon Builder");
 //    menuInterface.run();
 
-    DungeonLevel level{"Level", 2, 2};
+    BasicDungeonLevel level{"Level", 2, 2};
 
     level.addRoom(std::make_shared<RockChamber>(1));
     level.addRoom(std::make_shared<RockChamber>(2));
@@ -37,6 +37,8 @@ int main()
 
     level.retrieveRoom(4)->setEdge(Room::Direction::West, std::make_shared<BlockedDoorway>());
     level.retrieveRoom(4)->setEdge(Room::Direction::North, std::make_shared<OpenDoorway>());
+
+    cout << level.description() << endl;
 
     cout << level << std::endl;
 

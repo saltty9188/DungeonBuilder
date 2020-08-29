@@ -73,6 +73,7 @@ std::array<std::string, 5> Room::display() const {
     returnArray[2].append("   ");
     //REPLACE WITH MONSTER/ITEM STUFF
     returnArray[2].append("   ");
+
     returnArray[2].append("   ");
     returnArray[2].push_back(edge(Room::Direction::East)->displayCharacter());
 
@@ -90,6 +91,6 @@ int Room::id() const {
 }
 
 std::ostream& core::dungeon::operator<< (std::ostream &out, const Room &room) {
-    out << room.description();
+    out << room.description() << std::endl;
     return out;
 }

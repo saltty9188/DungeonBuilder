@@ -4,6 +4,7 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        core/dungeon/basic/basicdungeonlevel.cpp \
         core/dungeon/basic/quartzchamber.cpp \
         core/dungeon/basic/rockchamber.cpp \
         core/dungeon/basic/rockwall.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
         main.cpp
 
 HEADERS += \
+    core/dungeon/basic/basicdungeonlevel.h \
     core/dungeon/basic/quartzchamber.h \
     core/dungeon/basic/rockchamber.h \
     core/dungeon/basic/rockwall.h \

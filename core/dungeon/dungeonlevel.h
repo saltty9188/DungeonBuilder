@@ -18,7 +18,7 @@ namespace core::dungeon {
         int height() const;
         int numberOfRooms() const;
         std::string name() const;
-        //virtual std::string description() const = 0;
+        virtual std::string description() const = 0;
         std::vector<std::string> display() const;
 
     private:
