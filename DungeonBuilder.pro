@@ -7,6 +7,7 @@ SOURCES += \
         core/creatures/abstractcreature.cpp \
         core/creatures/monster.cpp \
         core/dungeon/basic/basicdungeonlevel.cpp \
+        core/dungeon/basic/basicdungeonlevelbuilder.cpp \
         core/dungeon/basic/quartzchamber.cpp \
         core/dungeon/basic/rockchamber.cpp \
         core/dungeon/basic/rockwall.cpp \
@@ -31,6 +32,7 @@ HEADERS += \
     core/creatures/abstractcreature.h \
     core/creatures/monster.h \
     core/dungeon/basic/basicdungeonlevel.h \
+    core/dungeon/basic/basicdungeonlevelbuilder.h \
     core/dungeon/basic/quartzchamber.h \
     core/dungeon/basic/rockchamber.h \
     core/dungeon/basic/rockwall.h \

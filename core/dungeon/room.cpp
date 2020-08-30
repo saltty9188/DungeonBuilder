@@ -117,7 +117,7 @@ std::array<std::string, 5> Room::display() const {
     returnArray[2].append("   ");
 
     returnArray[2].push_back((creature() ? 'M' : ' '));
-    returnArray[2].push_back((hasExit() ? '*' : ' '));
+    returnArray[2].push_back(((hasExit() && creature()) ? '*' : ' '));
     returnArray[2].push_back((item() ? 'L' : ' '));
 
     returnArray[2].append("   ");
