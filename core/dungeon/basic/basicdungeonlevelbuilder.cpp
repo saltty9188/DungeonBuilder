@@ -25,12 +25,13 @@ BasicDungeonLevelBuilder::BasicDungeonLevelBuilder()
 }
 
 void BasicDungeonLevelBuilder::generateItems() {
-    insertItem(std::make_shared<Consumable>("Health Potion"));
-    insertItem(std::make_shared<Consumable>("Molotov Cocktail"));
-    insertItem(std::make_shared<Consumable>("Smoke Bomb"));
-    insertItem(std::make_shared<Weapon>("Boomerang"));
-    insertItem(std::make_shared<Weapon>("Short Sword"));
-    insertItem(std::make_shared<Weapon>("Battle Axe"));
+    insertConsumable(std::make_shared<Consumable>("Health Potion"));
+    insertConsumable(std::make_shared<Consumable>("Molotov Cocktail"));
+    insertConsumable(std::make_shared<Consumable>("Smoke Bomb"));
+
+    insertWeapon(std::make_shared<Weapon>("Boomerang"));
+    insertWeapon(std::make_shared<Weapon>("Short Sword"));
+    insertWeapon(std::make_shared<Weapon>("Battle Axe"));
 }
 
 void BasicDungeonLevelBuilder::generateCreatures() {

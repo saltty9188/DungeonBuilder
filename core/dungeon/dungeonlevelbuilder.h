@@ -4,8 +4,11 @@
 #include <string>
 #include "room.h"
 #include "dungeonlevel.h"
+#include "../items/consumable.h"
+#include "../items/weapon.h"
 
 namespace core::dungeon {
+using namespace core::items;
     class DungeonLevelBuilder
     {
     public:
@@ -32,7 +35,8 @@ namespace core::dungeon {
         DungeonLevel * getDungeonLevel() const;
 
     protected:
-        void insertItem(std::shared_ptr<Item> item);
+        void insertConsumable(std::shared_ptr<Consumable> consumable);
+        void insertWeapon(std::shared_ptr<Weapon> weapon);
         virtual void generateItems() = 0;
         void insertCreature(std::shared_ptr<AbstractCreature> creature);
         virtual void generateCreatures() = 0;
@@ -42,7 +46,8 @@ namespace core::dungeon {
 
     private:
         std::shared_ptr<DungeonLevel> _level;
-        std::vector<std::shared_ptr<Item>> _prototypeItems;
+        std::vector<std::shared_ptr<Consumable>> _prototypeConsumables;
+        std::vector<std::shared_ptr<Weapon>> _prototypeWeapons;
         std::vector<std::shared_ptr<AbstractCreature>> _prototypeCreatures;
     };
 
