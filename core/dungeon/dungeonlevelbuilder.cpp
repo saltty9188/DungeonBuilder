@@ -2,13 +2,17 @@
 #include "core/game.h"
 using namespace core::dungeon;
 
-DungeonLevelBuilder::DungeonLevelBuilder()
+DungeonLevelBuilder::DungeonLevelBuilder(): _level{nullptr}
 {
 
 }
 
 void DungeonLevelBuilder::buildDungeonLevel(std::string name, int width, int height) {
 
+}
+
+void DungeonLevelBuilder::buildDungeonLevel(std::shared_ptr<DungeonLevel> dungeonLevel) {
+    _level = dungeonLevel;
 }
 
 std::shared_ptr<Room> DungeonLevelBuilder::buildRoom(int id) {
@@ -37,7 +41,7 @@ void DungeonLevelBuilder::buildCreature(std::shared_ptr<Room> room) {
 }
 
 DungeonLevel * DungeonLevelBuilder::getDungeonLevel() const {
-    return nullptr;
+    return _level.get();
 }
 
 void DungeonLevelBuilder::insertItem(std::shared_ptr<Item> item) {

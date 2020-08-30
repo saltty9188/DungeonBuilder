@@ -18,12 +18,9 @@ namespace core::dungeon::basic {
         virtual void buildExit(std::shared_ptr<Room> room, Room::Direction direction) override;
         virtual void buildItem(std::shared_ptr<Room> room) override;
         virtual void buildCreature(std::shared_ptr<Room> room) override;
-        virtual DungeonLevel * getDungeonLevel() const override;
     protected:
         virtual void generateItems() override;
         virtual void generateCreatures() override;
-    private:
-        std::shared_ptr<DungeonLevel> _level;
     };
 }
 

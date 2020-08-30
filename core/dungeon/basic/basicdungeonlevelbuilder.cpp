@@ -18,7 +18,7 @@ using namespace core::items;
 using core::creatures::Monster;
 using namespace core::dungeon;
 
-BasicDungeonLevelBuilder::BasicDungeonLevelBuilder(): _level{nullptr}
+BasicDungeonLevelBuilder::BasicDungeonLevelBuilder()
 {
     generateItems();
     generateCreatures();
@@ -45,7 +45,7 @@ void BasicDungeonLevelBuilder::generateCreatures() {
  * @param height The height of the new dungeon.
  */
 void BasicDungeonLevelBuilder::buildDungeonLevel(std::string name, int width, int height) {
-    _level = std::make_shared<BasicDungeonLevel>(name, width, height);
+    DungeonLevelBuilder::buildDungeonLevel(std::make_shared<BasicDungeonLevel>(name, width, height));
 }
 
 /**
@@ -55,11 +55,11 @@ void BasicDungeonLevelBuilder::buildDungeonLevel(std::string name, int width, in
  */
 std::shared_ptr<Room> BasicDungeonLevelBuilder::buildRoom(int id) {
     if(((int) (core::Game::instance().randomDouble() * 10)) % 4 == 0) {
-        _level->addRoom(std::make_shared<QuartzChamber>(id));
+        getDungeonLevel()->addRoom(std::make_shared<QuartzChamber>(id));
     } else {
-        _level->addRoom(std::make_shared<RockChamber>(id));
+        getDungeonLevel()->addRoom(std::make_shared<RockChamber>(id));
     }
-    return _level->retrieveRoom(id);
+    return getDungeonLevel()->retrieveRoom(id);
 }
 
 
@@ -191,8 +191,4 @@ void BasicDungeonLevelBuilder::buildItem(std::shared_ptr<Room> room) {
  */
 void BasicDungeonLevelBuilder::buildCreature(std::shared_ptr<Room> room) {
     room->setCreature(randomCreature()->clone());
-}
-
-DungeonLevel * BasicDungeonLevelBuilder::getDungeonLevel() const {
-    return _level.get();
 }
