@@ -1,4 +1,5 @@
 #include "menuinterface.h"
+#include "game.h"
 
 using namespace core;
 
@@ -52,7 +53,7 @@ void MenuInterface::displayMainMenu() const {
         case 'g':
         case 'G':
             _display << "\nCreating Example Dungeon Level..." << std::endl;
-            //TODO: Generate example dungeon here
+            Game::instance().createExampleLevel();
             _display << "Dungeon level created!" << std::endl;
             displayViewMenu();
             break;
@@ -199,13 +200,13 @@ void MenuInterface::displayViewMenu() const {
         switch (userInput.at(0)) {
         case 'd':
         case 'D':
-            _display << "\nDisplaying dungeon info." << std::endl;
+            _display << "\n" << Game::instance().displayLevel().description() << std::endl;
             displayExplorationMenu();
             break;
 
         case 'v':
         case 'V':
-            _display << "\nShowing the view output" << std::endl;
+            _display << "\n" << Game::instance().displayLevel() << std::endl;
             _display << "\n*Press Enter to continue*" << std::endl;
             _input.ignore();
             _input.get();
@@ -259,16 +260,15 @@ void MenuInterface::describeRoom() const {
     bool selecting{true};
     // Want to loop until the user inputs a valid room number.
     while(selecting) {
-        _display << "\nWhich room would you like to describe? (1-MAX)" << std::endl;
-        //use max as 4 for now
+        _display << "\nWhich room would you like to describe? (1-" << Game::instance().displayLevel().numberOfRooms() << ")" << std::endl;
         std::string roomNumberString{};
         _input >> roomNumberString;
         int roomNumber{};
         try {
             roomNumber = std::stoi(roomNumberString);
-            if(roomNumber >= 1 && roomNumber <= 4) {
-                _display << "\nDisplaying room info..." << std::endl;
-                //Put real display stuff
+            if(roomNumber >= 1 && roomNumber <= Game::instance().displayLevel().numberOfRooms()) {
+                _display << "\nRoom *" << roomNumber << "* is..." << std::endl;
+                _display << *Game::instance().displayLevel().retrieveRoom(roomNumber) << std::endl;
                 _display << "\n*Press Enter to continue*" << std::endl;
                 _input.ignore();
                 _input.get();
