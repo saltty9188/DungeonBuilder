@@ -11,7 +11,7 @@ std::uniform_real_distribution<double> _realDistribution{0.0, 1.0}; //!< For ran
 
 Game::Game()
 {
-    std::cout << "E" << std::endl;
+
 }
 
 /**
@@ -30,7 +30,7 @@ Game & Game::instance() {
  * @brief Returns a random double between 0.0 and 1.0.
  * @return A random double between 0.0 and 1.0.
  */
-double Game::randomDouble() {
+double Game::randomDouble() const{
   return _realDistribution(_randomGenerator);
 }
 

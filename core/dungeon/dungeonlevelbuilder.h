@@ -30,7 +30,22 @@ namespace core::dungeon {
         virtual void buildItem(std::shared_ptr<Room> room);
         virtual void buildCreature(std::shared_ptr<Room> room);
         virtual DungeonLevel * getDungeonLevel() const;
+
+    protected:
+        void insertItem(std::shared_ptr<Item> item);
+        virtual void generateItems() = 0;
+        void insertCreature(std::shared_ptr<AbstractCreature> creature);
+        virtual void generateCreatures() = 0;
+        std::shared_ptr<Item> randomItem() const;
+        std::shared_ptr<AbstractCreature> randomCreature() const;
+
+    private:
+        std::vector<std::shared_ptr<Item>> _prototypeItems;
+        std::vector<std::shared_ptr<AbstractCreature>> _prototypeCreatures;
     };
+
+    DungeonLevelBuilder::MoveContraints operator|(const DungeonLevelBuilder::MoveContraints &lhs, const DungeonLevelBuilder::MoveContraints &rhs);
+    DungeonLevelBuilder::MoveContraints operator&(const DungeonLevelBuilder::MoveContraints &lhs, const DungeonLevelBuilder::MoveContraints &rhs);
 }
 
 

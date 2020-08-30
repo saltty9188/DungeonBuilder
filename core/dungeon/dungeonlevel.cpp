@@ -82,10 +82,13 @@ std::vector<std::string> DungeonLevel::display() const {
     // Get the "height" of the returned string vector
     int vectorHeight = _height * 5 + (_height - 1);
     int currentRoomRow{0};
+
     for(int y{0}; y < vectorHeight; y++) {
         std::string string{""};
+
         for(int x{0}; x < _width; x++) {
             int currentRoomIndex{x + _width * currentRoomRow};
+
             // Row between rooms
             if((y-5) % 6 == 0) {
                 string.append("     ");
@@ -95,15 +98,17 @@ std::vector<std::string> DungeonLevel::display() const {
                     string.append(" ");
                 }
                 string.append("       ");
+
             } else {
                 // Append the current string row of the current room
                 string.append(_rooms[currentRoomIndex]->display()[y - (6 * currentRoomRow)]);
-                // center row of a room and we're not on the last room of a row
-                if(((y-2) % 6 == 0) && x != _width - 1) {
-                    // If both rooms have connecting doors add the extra dashes
-                    if(_rooms[currentRoomIndex]->edge(Room::Direction::East)->isPassage() && _rooms[currentRoomIndex + 1]->edge(Room::Direction::West)->isPassage()) {
-                        string.append("--");
-                    }
+                // center row of a room and we're not on the last room of a row and
+                // if both rooms have connecting doors add the extra dashes
+                if(((y-2) % 6 == 0) && x != _width - 1 &&
+                        _rooms[currentRoomIndex]->edge(Room::Direction::East)->isPassage() &&
+                        _rooms[currentRoomIndex + 1]->edge(Room::Direction::West)->isPassage()) {
+                    string.append("--");
+
                 } else {
                     string.append("  ");
                 }

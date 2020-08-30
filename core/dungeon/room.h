@@ -28,6 +28,7 @@ namespace core::dungeon {
         void setCreature(std::shared_ptr<AbstractCreature> newCreature);
 
         enum class Direction : unsigned {North, South, East, West};
+        static Direction oppositeDirection(const Direction &direction);
         void setEdge(const Direction &direction, std::shared_ptr<RoomEdge> roomEdge);
         std::shared_ptr<RoomEdge> edge(const Direction direction) const;
     private:

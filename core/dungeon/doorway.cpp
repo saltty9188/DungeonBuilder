@@ -2,14 +2,13 @@
 
 using namespace core::dungeon;
 
-Doorway::Doorway(): _opposite{nullptr}, _entrance{false}, _exit{false}, RoomEdge{}
+Doorway::Doorway():RoomEdge{}, _opposite{nullptr}, _entrance{false}, _exit{false}
 {
 
 }
 
 Doorway::~Doorway() {
     delete _opposite;
-    _opposite = nullptr;
 }
 
 /**

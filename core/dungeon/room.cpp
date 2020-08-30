@@ -136,6 +136,27 @@ int Room::id() const {
     return _id;
 }
 
+/**
+ * @brief Returns the opposite direction to the Direction supplied.
+ * @param direction The Direction to get the opposite of.
+ * @return The opposite direction to the Direction supplied.
+ */
+Room::Direction Room::oppositeDirection(const Direction &direction) {
+    switch(direction) {
+    case Room::Direction::North:
+        return Room::Direction::South;
+
+    case Room::Direction::South:
+        return Room::Direction::North;
+
+    case Room::Direction::East:
+        return Room::Direction::West;
+
+    case Room::Direction::West:
+        return Room::Direction::East;
+    }
+}
+
 std::ostream& core::dungeon::operator<< (std::ostream &out, const Room &room) {
     out << room.description() << std::endl;
     return out;

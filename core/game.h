@@ -14,7 +14,7 @@ namespace core {
         void createExampleLevel();
         void createRandomLevel(std::string name, int width, int height);
         void displayLevel();
-        double randomDouble();
+        double randomDouble() const;
 
         Game(const Game &other) = delete;
         Game & operator=(const Game &other) = delete;
