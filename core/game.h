@@ -13,7 +13,7 @@ namespace core {
     public:
         static Game & instance();
         ~Game();
-        void setDungeonType(std::unique_ptr<dungeon::DungeonLevelBuilder> builder); //add param later
+        void setDungeonType(std::unique_ptr<dungeon::DungeonLevelBuilder> builder);
         void createExampleLevel();
         void createRandomLevel(std::string name, int width, int height);
         dungeon::DungeonLevel & displayLevel() const;

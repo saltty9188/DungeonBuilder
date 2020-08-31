@@ -21,7 +21,8 @@ using namespace core::dungeon;
 
 MagicalDungeonLevelBuilder::MagicalDungeonLevelBuilder()
 {
-
+    generateItems();
+    generateCreatures();
 }
 
 void MagicalDungeonLevelBuilder::generateItems() {

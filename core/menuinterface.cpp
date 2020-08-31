@@ -1,9 +1,11 @@
 #include "menuinterface.h"
 #include "game.h"
 #include "dungeon/basic/basicdungeonlevelbuilder.h"
+#include "dungeon/magical/magicaldungeonlevelbuilder.h"
 
 using namespace core;
 using core::dungeon::basic::BasicDungeonLevelBuilder;
+using core::dungeon::magical::MagicalDungeonLevelBuilder;
 
 /**
  * @brief The constructor for MenuInterface accepting a reference to an ostream object and an istream object.
@@ -133,7 +135,7 @@ void MenuInterface::generateRandomDungeon() const {
 
     selecting = true;
     while(selecting) {
-        _display << "\nWhat type of dungeon level is it? (b)asic or (m)magical" << std::endl;
+        _display << "\nWhat type of dungeon level is it? (b)asic or (m)agical" << std::endl;
         std::string dungeonType{};
         _input >> dungeonType;
         switch(dungeonType.at(0)) {
@@ -144,6 +146,7 @@ void MenuInterface::generateRandomDungeon() const {
             break;
         case 'M':
         case 'm':
+            Game::instance().setDungeonType(std::make_unique<MagicalDungeonLevelBuilder>());
             selecting = false;
             break;
 

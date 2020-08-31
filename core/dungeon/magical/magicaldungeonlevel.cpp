@@ -21,7 +21,6 @@ std::string MagicalDungeonLevel::description() const {
     description.append(" x ");
     description.push_back('0' + (char) height());
 
-    description.append("\nType: Magical Labyrinth (Magical Dungeon"
-                       ".)");
+    description.append("\nType: Magical Labyrinth (Magical Dungeon)");
     return description;
 }
