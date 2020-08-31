@@ -12,6 +12,4 @@ int main()
     menuInterface.run();
 
     return 0;
-
-
 }

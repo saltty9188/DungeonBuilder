@@ -18,6 +18,7 @@ SOURCES += \
         core/dungeon/doorway.cpp \
         core/dungeon/dungeonlevel.cpp \
         core/dungeon/dungeonlevelbuilder.cpp \
+        core/dungeon/magical/magicwall.cpp \
         core/dungeon/room.cpp \
         core/dungeon/roomedge.cpp \
         core/dungeon/wall.cpp \
@@ -43,6 +44,7 @@ HEADERS += \
     core/dungeon/doorway.h \
     core/dungeon/dungeonlevel.h \
     core/dungeon/dungeonlevelbuilder.h \
+    core/dungeon/magical/magicwall.h \
     core/dungeon/room.h \
     core/dungeon/roomedge.h \
     core/dungeon/wall.h \
