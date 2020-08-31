@@ -1,7 +1,9 @@
 #include "menuinterface.h"
 #include "game.h"
+#include "dungeon/basic/basicdungeonlevelbuilder.h"
 
 using namespace core;
+using core::dungeon::basic::BasicDungeonLevelBuilder;
 
 /**
  * @brief The constructor for MenuInterface accepting a reference to an ostream object and an istream object.
@@ -99,9 +101,8 @@ void MenuInterface::generateRandomDungeon() const {
 
         try {
             rows = std::stoi(rowString);
-            // maybe add upper limit later
-            if(rows <= 0) {
-                _display << "\nInvalid input. Enter an integer value." << std::endl;
+            if(rows <= 0 || rows > 4) {
+                _display << "\nInvalid input. Enter a value between 1 and 4." << std::endl;
             } else {
                 selecting = false;
             }
@@ -120,9 +121,8 @@ void MenuInterface::generateRandomDungeon() const {
 
         try {
             columns = std::stoi(columnString);
-            // maybe add upper limit later
-            if(columns <= 0) {
-                _display << "\nInvalid input. Enter an integer value." << std::endl;
+            if(columns <= 0 || columns > 4) {
+                _display << "\nInvalid input. Enter a value between 1 and 4." << std::endl;
             } else {
                 selecting = false;
             }
@@ -139,6 +139,9 @@ void MenuInterface::generateRandomDungeon() const {
         switch(dungeonType.at(0)) {
         case 'B':
         case 'b':
+            Game::instance().setDungeonType(std::make_unique<BasicDungeonLevelBuilder>());
+            selecting = false;
+            break;
         case 'M':
         case 'm':
             selecting = false;
@@ -150,7 +153,7 @@ void MenuInterface::generateRandomDungeon() const {
     }
 
     _display << "\nCreating " << levelName << "..." << std::endl;
-    //TODO: Generate random dungeon here
+    Game::instance().createRandomLevel(levelName, columns, rows);
     _display << "Dungeon level created!" << std::endl;
 
 }
