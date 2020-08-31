@@ -21,6 +21,7 @@ SOURCES += \
         core/dungeon/magical/alchemistslaboratory.cpp \
         core/dungeon/magical/enchantedlibrary.cpp \
         core/dungeon/magical/magicaldungeonlevel.cpp \
+        core/dungeon/magical/magicaldungeonlevelbuilder.cpp \
         core/dungeon/magical/magicwall.cpp \
         core/dungeon/room.cpp \
         core/dungeon/roomedge.cpp \
@@ -50,6 +51,7 @@ HEADERS += \
     core/dungeon/magical/alchemistslaboratory.h \
     core/dungeon/magical/enchantedlibrary.h \
     core/dungeon/magical/magicaldungeonlevel.h \
+    core/dungeon/magical/magicaldungeonlevelbuilder.h \
     core/dungeon/magical/magicwall.h \
     core/dungeon/room.h \
     core/dungeon/roomedge.h \
