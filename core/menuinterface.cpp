@@ -21,7 +21,7 @@ MenuInterface::MenuInterface(std::ostream &display, std::istream &input): _displ
  * @param author The author of the program.
  * @param title  The title of the program.
  */
-void MenuInterface::displayWelcome(const std::string author, const std::string title) const{
+void MenuInterface::displayWelcome(const std::string &author, const std::string &title) const{
     _display << "Welcome to: " << title << std::endl;
     _display << "      Developed by " << author << std::endl;
     _display << "COMP 3023 Software Development with C++" << std::endl;

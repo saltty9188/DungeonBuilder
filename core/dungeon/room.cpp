@@ -20,7 +20,7 @@ std::shared_ptr<Item> Room::item() const {
  * @brief Sets the Item contained within this Room to be the given Item.
  * @param newItem The Item to be put in this Room.
  */
-void Room::setItem(std::shared_ptr<Item> newItem) {
+void Room::setItem(const std::shared_ptr<Item> &newItem) {
     _item = newItem;
 }
 
@@ -36,7 +36,7 @@ std::shared_ptr<AbstractCreature> Room::creature() const {
  * @brief Sets the Creature contained within this Room to be the given Creature.
  * @param newCreature The Creature to be put in this Room.
  */
-void Room::setCreature(std::shared_ptr<AbstractCreature> newCreature) {
+void Room::setCreature(const std::shared_ptr<AbstractCreature> &newCreature) {
     _creature = newCreature;
 }
 
@@ -57,7 +57,7 @@ bool Room::hasExit() const {
  * @param direction The Direction of the edge to be set.
  * @param roomEdge  The Room Edge being set.
  */
-void Room::setEdge(const Direction &direction, std::shared_ptr<RoomEdge> roomEdge) {
+void Room::setEdge(const Direction &direction, const std::shared_ptr<RoomEdge> &roomEdge) {
     if(roomEdge) {
         roomEdge->setDirection(direction);
         switch(direction) {
@@ -85,7 +85,7 @@ void Room::setEdge(const Direction &direction, std::shared_ptr<RoomEdge> roomEdg
  * @param direction The Direction of the Room Edge to be retrieved.
  * @return A shared pointer to the Room Edge at the given Direction.
  */
-std::shared_ptr<RoomEdge> Room::edge(const Direction direction) const {
+std::shared_ptr<RoomEdge> Room::edge(const Direction &direction) const {
     switch(direction) {
     case Room::Direction::North:
         return _edges[0];

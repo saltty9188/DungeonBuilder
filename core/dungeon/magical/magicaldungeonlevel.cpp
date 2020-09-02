@@ -3,7 +3,7 @@
 using namespace core::dungeon::magical;
 
 
-MagicalDungeonLevel::MagicalDungeonLevel(std::string name, int width, int height): DungeonLevel{name, width, height}
+MagicalDungeonLevel::MagicalDungeonLevel(const std::string &name, int width, int height): DungeonLevel{name, width, height}
 {
 
 }

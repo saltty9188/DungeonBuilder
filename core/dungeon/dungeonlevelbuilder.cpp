@@ -12,7 +12,7 @@ DungeonLevelBuilder::~DungeonLevelBuilder() {
     delete _level;
 }
 
-void DungeonLevelBuilder::buildDungeonLevel(std::string name, int width, int height) {
+void DungeonLevelBuilder::buildDungeonLevel(const std::string &name, int width, int height) {
 
 }
 
@@ -24,24 +24,24 @@ std::shared_ptr<Room> DungeonLevelBuilder::buildRoom(int id) {
     return nullptr;
 }
 
-void DungeonLevelBuilder::buildDoorway(std::shared_ptr<Room> origin, std::shared_ptr<Room> destination,
-                                       Room::Direction direction, MoveContraints constraints) {
+void DungeonLevelBuilder::buildDoorway(const std::shared_ptr<Room> &origin, const std::shared_ptr<Room> &destination,
+                                       const Room::Direction &direction, const MoveContraints &constraints) {
 
 }
 
-void DungeonLevelBuilder::buildEntrance(std::shared_ptr<Room> room, Room::Direction direction) {
+void DungeonLevelBuilder::buildEntrance(const std::shared_ptr<Room> &room, const Room::Direction &direction) {
 
 }
 
-void DungeonLevelBuilder::buildExit(std::shared_ptr<Room> room, Room::Direction direction) {
+void DungeonLevelBuilder::buildExit(const std::shared_ptr<Room> &room, const Room::Direction &direction) {
 
 }
 
-void DungeonLevelBuilder::buildItem(std::shared_ptr<Room> room) {
+void DungeonLevelBuilder::buildItem(const std::shared_ptr<Room> &room) {
 
 }
 
-void DungeonLevelBuilder::buildCreature(std::shared_ptr<Room> room) {
+void DungeonLevelBuilder::buildCreature(const std::shared_ptr<Room> &room) {
 
 }
 
@@ -49,15 +49,15 @@ DungeonLevel * DungeonLevelBuilder::getDungeonLevel() const {
     return _level;
 }
 
-void DungeonLevelBuilder::insertConsumable(std::shared_ptr<Consumable> consumable) {
+void DungeonLevelBuilder::insertConsumable(const std::shared_ptr<Consumable> &consumable) {
     _prototypeConsumables.push_back(consumable);
 }
 
-void DungeonLevelBuilder::insertWeapon(std::shared_ptr<Weapon> weapon) {
+void DungeonLevelBuilder::insertWeapon(const std::shared_ptr<Weapon> &weapon) {
     _prototypeWeapons.push_back(weapon);
 }
 
-void DungeonLevelBuilder::insertCreature(std::shared_ptr<AbstractCreature> creature) {
+void DungeonLevelBuilder::insertCreature(const std::shared_ptr<AbstractCreature> &creature) {
     _prototypeCreatures.push_back(creature);
 }
 

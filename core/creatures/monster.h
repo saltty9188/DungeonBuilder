@@ -7,7 +7,7 @@ namespace core::creatures {
     class Monster : public AbstractCreature
     {
     public:
-        Monster(std::string name);
+        Monster(const std::string &name);
         virtual ~Monster() = default;
 
         virtual std::shared_ptr<AbstractCreature> clone() const override;

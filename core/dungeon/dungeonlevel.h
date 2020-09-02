@@ -10,10 +10,10 @@ namespace core::dungeon {
     class DungeonLevel
     {
     public:
-        DungeonLevel(std::string name, int width, int height);
+        DungeonLevel(const std::string &name, int width, int height);
         virtual ~DungeonLevel() = default;
 
-        bool addRoom(std::shared_ptr<Room> room);
+        bool addRoom(const std::shared_ptr<Room> &room);
         std::shared_ptr<Room> retrieveRoom(int id);
         int width() const;
         int height() const;

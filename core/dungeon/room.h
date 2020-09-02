@@ -22,14 +22,14 @@ namespace core::dungeon {
         std::array<std::string, 5> display() const;
         int id() const;
         std::shared_ptr<Item> item() const;
-        void setItem(std::shared_ptr<Item> newItem);
+        void setItem(const std::shared_ptr<Item> &newItem);
         std::shared_ptr<AbstractCreature> creature() const;
-        void setCreature(std::shared_ptr<AbstractCreature> newCreature);
+        void setCreature(const std::shared_ptr<AbstractCreature> &newCreature);
 
         enum class Direction : unsigned {North, South, East, West};
         static Direction oppositeDirection(const Direction &direction);
-        void setEdge(const Direction &direction, std::shared_ptr<RoomEdge> roomEdge);
-        std::shared_ptr<RoomEdge> edge(const Direction direction) const;
+        void setEdge(const Direction &direction, const std::shared_ptr<RoomEdge> &roomEdge);
+        std::shared_ptr<RoomEdge> edge(const Direction &direction) const;
     private:
         int _id;
         std::shared_ptr<Item> _item;

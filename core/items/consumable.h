@@ -7,7 +7,7 @@ namespace core::items {
     class Consumable : public Item
     {
     public:
-        Consumable(std::string name);
+        Consumable(const std::string &name);
         virtual ~Consumable() = default;
 
         virtual std::shared_ptr<Item> clone() const override;

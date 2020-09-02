@@ -2,7 +2,7 @@
 
 using namespace core::creatures;
 
-AbstractCreature::AbstractCreature(std::string name): _name{name}
+AbstractCreature::AbstractCreature(const std::string &name): _name{name}
 {
 
 }

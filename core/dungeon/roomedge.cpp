@@ -7,7 +7,7 @@ RoomEdge::RoomEdge(): _direction{}
 
 }
 
-void RoomEdge::setDirection(Room::Direction direction) {
+void RoomEdge::setDirection(const Room::Direction &direction) {
     _direction = direction;
 }
 

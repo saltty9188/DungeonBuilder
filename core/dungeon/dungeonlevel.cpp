@@ -4,7 +4,7 @@
 
 using namespace core::dungeon;
 
-DungeonLevel::DungeonLevel(std::string name, int width, int height): _name{name}, _width{width}, _height{height}
+DungeonLevel::DungeonLevel(const std::string &name, int width, int height): _name{name}, _width{width}, _height{height}
 {
 
 }
@@ -14,7 +14,7 @@ DungeonLevel::DungeonLevel(std::string name, int width, int height): _name{name}
  * @param room The Room to be added.
  * @return True if the room was successfully added, false otherwise.
  */
-bool DungeonLevel::addRoom(std::shared_ptr<Room> room) {
+bool DungeonLevel::addRoom(const std::shared_ptr<Room> &room) {
     if(room) {
         _rooms.push_back(room);
         return true;

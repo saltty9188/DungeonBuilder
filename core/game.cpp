@@ -94,7 +94,7 @@ void Game::createExampleLevel() {
     _level = _builder->getDungeonLevel();
 }
 
-void Game::createRandomLevel(std::string name, int width, int height) {
+void Game::createRandomLevel(const std::string &name, int width, int height) {
     // Make sure builder isn't null
     if(_builder) {
         _builder->buildDungeonLevel(name, width, height);
@@ -237,7 +237,7 @@ void Game::createRandomLevel(std::string name, int width, int height) {
     }
 }
 
-Room::Direction Game::randomDirection(const std::vector<Room::Direction> directions) const {
+Room::Direction Game::randomDirection(const std::vector<Room::Direction> &directions) const {
     int randomDirection{(int)(randomDouble() * directions.size())};
     return directions[randomDirection];
 }

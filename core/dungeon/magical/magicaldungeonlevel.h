@@ -7,7 +7,7 @@ namespace core::dungeon::magical {
     class MagicalDungeonLevel : public DungeonLevel
     {
     public:
-        MagicalDungeonLevel(std::string name, int width, int height);
+        MagicalDungeonLevel(const std::string &name, int width, int height);
         virtual ~MagicalDungeonLevel() = default;
         virtual std::string description() const override;
     };

@@ -45,7 +45,7 @@ void BasicDungeonLevelBuilder::generateCreatures() {
  * @param width  The width of the new dungeon.
  * @param height The height of the new dungeon.
  */
-void BasicDungeonLevelBuilder::buildDungeonLevel(std::string name, int width, int height) {
+void BasicDungeonLevelBuilder::buildDungeonLevel(const std::string &name, int width, int height) {
     DungeonLevelBuilder::buildDungeonLevel(new BasicDungeonLevel(name, width, height));
 }
 
@@ -77,8 +77,8 @@ std::shared_ptr<Room> BasicDungeonLevelBuilder::buildRoom(int id) {
  * @param constraints   The MoveConstraints that determine the type of Doorway built. Multiple MoveConstraints
  *                      may be combined using bitwise or (|).
  */
-void BasicDungeonLevelBuilder::buildDoorway(std::shared_ptr<Room> origin, std::shared_ptr<Room> destination,
-                                            Room::Direction direction, MoveContraints constraints) {
+void BasicDungeonLevelBuilder::buildDoorway(const std::shared_ptr<Room> &origin, const std::shared_ptr<Room> &destination,
+                                            const Room::Direction &direction, const MoveContraints &constraints) {
     // Extract the move constraints
     bool noConstraints{constraints == MoveContraints::None};
     bool originImpassable{(MoveContraints::OriginImpassable & constraints) == MoveContraints::OriginImpassable};
@@ -159,7 +159,7 @@ void BasicDungeonLevelBuilder::buildDoorway(std::shared_ptr<Room> origin, std::s
  * @param room      The Room to have the entrance built in.
  * @param direction The Direction where the entrance will be built.
  */
-void BasicDungeonLevelBuilder::buildEntrance(std::shared_ptr<Room> room, Room::Direction direction) {
+void BasicDungeonLevelBuilder::buildEntrance(const std::shared_ptr<Room> &room, const Room::Direction &direction) {
     room->setEdge(direction, std::make_shared<OneWayDoor>());
     // Cast to doorway to set as entrance
     std::shared_ptr<Doorway> door = std::dynamic_pointer_cast<Doorway>(room->edge(direction));
@@ -171,7 +171,7 @@ void BasicDungeonLevelBuilder::buildEntrance(std::shared_ptr<Room> room, Room::D
  * @param room      The Room to have the exit built in.
  * @param direction The Direction where the exit will be built.
  */
-void BasicDungeonLevelBuilder::buildExit(std::shared_ptr<Room> room, Room::Direction direction) {
+void BasicDungeonLevelBuilder::buildExit(const std::shared_ptr<Room> &room, const Room::Direction &direction) {
     room->setEdge(direction, std::make_shared<OneWayDoor>());
     // Cast to doorway to set as entrance
     std::shared_ptr<Doorway> door = std::dynamic_pointer_cast<Doorway>(room->edge(direction));
@@ -182,7 +182,7 @@ void BasicDungeonLevelBuilder::buildExit(std::shared_ptr<Room> room, Room::Direc
  * @brief Builds a clone of a random Item and inserts it into the chosen Room.
  * @param room The Room to receive the Item.
  */
-void BasicDungeonLevelBuilder::buildItem(std::shared_ptr<Room> room) {
+void BasicDungeonLevelBuilder::buildItem(const std::shared_ptr<Room> &room) {
     room->setItem(randomItem()->clone());
 }
 
@@ -190,6 +190,6 @@ void BasicDungeonLevelBuilder::buildItem(std::shared_ptr<Room> room) {
  * @brief Builds a clone of a random Abstract Creature and inserts it into the chosen Room.
  * @param room The Room to receive the Creature.
  */
-void BasicDungeonLevelBuilder::buildCreature(std::shared_ptr<Room> room) {
+void BasicDungeonLevelBuilder::buildCreature(const std::shared_ptr<Room> &room) {
     room->setCreature(randomCreature()->clone());
 }

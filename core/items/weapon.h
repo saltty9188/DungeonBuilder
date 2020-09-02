@@ -7,7 +7,7 @@ namespace core::items {
     class Weapon : public Item
     {
     public:
-        Weapon(std::string name);
+        Weapon(const std::string &name);
         virtual ~Weapon() = default;
 
         virtual std::shared_ptr<Item> clone() const override;

@@ -16,7 +16,7 @@ namespace core {
         ~Game();
         void setDungeonType(std::unique_ptr<dungeon::DungeonLevelBuilder> builder);
         void createExampleLevel();
-        void createRandomLevel(std::string name, int width, int height);
+        void createRandomLevel(const std::string &name, int width, int height);
         dungeon::DungeonLevel & displayLevel() const;
         double randomDouble() const;
 
@@ -28,7 +28,7 @@ namespace core {
 
         dungeon::DungeonLevel *_level;
         std::unique_ptr<dungeon::DungeonLevelBuilder> _builder;
-        dungeon::Room::Direction randomDirection(const std::vector<dungeon::Room::Direction> directions) const;
+        dungeon::Room::Direction randomDirection(const std::vector<dungeon::Room::Direction> &directions) const;
         bool isEdge(const dungeon::Room::Direction dungeonEdge, const dungeon::Room &room) const;
         bool isCorner(const dungeon::Room &room) const;
         bool hasExit(const dungeon::Room &room) const;

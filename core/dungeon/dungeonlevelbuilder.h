@@ -15,7 +15,7 @@ using namespace core::items;
         DungeonLevelBuilder();
         virtual ~DungeonLevelBuilder();
 
-        virtual void buildDungeonLevel(std::string name, int width, int height);
+        virtual void buildDungeonLevel(const std::string &name, int width, int height);
         virtual std::shared_ptr<Room> buildRoom(int id);
 
         enum class MoveContraints : unsigned {
@@ -26,19 +26,19 @@ using namespace core::items;
             DestinationLocked = 8
         };
 
-        virtual void buildDoorway(std::shared_ptr<Room> origin, std::shared_ptr<Room> destination,
-                          Room::Direction direction, MoveContraints constraints);
-        virtual void buildEntrance(std::shared_ptr<Room> room, Room::Direction direction);
-        virtual void buildExit(std::shared_ptr<Room> room, Room::Direction direction);
-        virtual void buildItem(std::shared_ptr<Room> room);
-        virtual void buildCreature(std::shared_ptr<Room> room);
+        virtual void buildDoorway(const std::shared_ptr<Room> &origin, const std::shared_ptr<Room> &destination,
+                          const Room::Direction &direction, const MoveContraints &constraints);
+        virtual void buildEntrance(const std::shared_ptr<Room> &room, const Room::Direction &direction);
+        virtual void buildExit(const std::shared_ptr<Room> &room, const Room::Direction &direction);
+        virtual void buildItem(const std::shared_ptr<Room> &room);
+        virtual void buildCreature(const std::shared_ptr<Room> &room);
         DungeonLevel * getDungeonLevel() const;
 
     protected:
-        void insertConsumable(std::shared_ptr<Consumable> consumable);
-        void insertWeapon(std::shared_ptr<Weapon> weapon);
+        void insertConsumable(const std::shared_ptr<Consumable> &consumable);
+        void insertWeapon(const std::shared_ptr<Weapon> &weapon);
         virtual void generateItems() = 0;
-        void insertCreature(std::shared_ptr<AbstractCreature> creature);
+        void insertCreature(const std::shared_ptr<AbstractCreature> &creature);
         virtual void generateCreatures() = 0;
         std::shared_ptr<Item> randomItem() const;
         std::shared_ptr<AbstractCreature> randomCreature() const;

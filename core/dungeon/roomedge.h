@@ -13,7 +13,7 @@ namespace core::dungeon {
         virtual std::string description() const = 0;
         virtual char displayCharacter() const = 0;
         virtual bool isPassage() const = 0;
-        void setDirection(Room::Direction direction);
+        void setDirection(const Room::Direction &direction);
     protected:
         Room::Direction direction() const;
     private:

@@ -2,7 +2,7 @@
 
 using namespace core::items;
 
-Consumable::Consumable(std::string name): Item{name}
+Consumable::Consumable(const std::string &name): Item{name}
 {
 
 }

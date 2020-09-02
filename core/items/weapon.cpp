@@ -2,7 +2,7 @@
 
 using namespace core::items;
 
-Weapon::Weapon(std::string name): Item{name}
+Weapon::Weapon(const std::string &name): Item{name}
 {
 
 }

@@ -7,7 +7,7 @@ namespace core::dungeon::basic {
     class BasicDungeonLevel : public DungeonLevel
     {
     public:
-        BasicDungeonLevel(std::string name, int width, int height);
+        BasicDungeonLevel(const std::string &name, int width, int height);
         virtual ~BasicDungeonLevel() = default;
 
         virtual std::string description() const override;

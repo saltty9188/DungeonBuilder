@@ -8,7 +8,7 @@ namespace core::creatures {
     class AbstractCreature
     {
     public:
-        AbstractCreature(std::string name);
+        AbstractCreature(const std::string &name);
         virtual ~AbstractCreature() = default;
 
         virtual std::shared_ptr<AbstractCreature> clone() const = 0;

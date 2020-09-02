@@ -2,7 +2,7 @@
 
 using namespace core::items;
 
-Item::Item(std::string name): _name{name}
+Item::Item(const std::string &name): _name{name}
 {
 
 }

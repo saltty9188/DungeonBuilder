@@ -1,7 +1,7 @@
 #include "monster.h"
 using namespace core::creatures;
 
-Monster::Monster(std::string name): AbstractCreature{name}
+Monster::Monster(const std::string &name): AbstractCreature{name}
 {
 
 }
