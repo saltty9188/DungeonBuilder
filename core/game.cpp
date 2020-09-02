@@ -6,7 +6,6 @@
 #include "dungeon/doorway.h"
 #include "dungeon/basic/basicdungeonlevelbuilder.h"
 #include "dungeon/magical/magicaldungeonlevelbuilder.h"
-#include <algorithm>
 
 
 using namespace core;

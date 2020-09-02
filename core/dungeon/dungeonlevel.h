@@ -3,6 +3,7 @@
 
 #include <string>
 #include <memory>
+#include <vector>
 #include "room.h"
 
 namespace core::dungeon {

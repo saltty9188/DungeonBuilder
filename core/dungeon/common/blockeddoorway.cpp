@@ -1,4 +1,5 @@
 #include "blockeddoorway.h"
+
 using namespace core::dungeon::common;
 
 BlockedDoorway::BlockedDoorway(): Doorway{}

@@ -1,5 +1,4 @@
 #include "doorway.h"
-#include <iostream>
 
 using namespace core::dungeon;
 

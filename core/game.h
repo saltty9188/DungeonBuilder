@@ -3,6 +3,7 @@
 
 #include <string>
 #include <memory>
+#include <vector>
 #include "dungeon/dungeonlevel.h"
 #include "dungeon/dungeonlevelbuilder.h"
 #include "dungeon/room.h"
@@ -24,6 +25,7 @@ namespace core {
     private:
         Game();
         static std::unique_ptr<Game> _theInstance;
+
         dungeon::DungeonLevel *_level;
         std::unique_ptr<dungeon::DungeonLevelBuilder> _builder;
         dungeon::Room::Direction randomDirection(const std::vector<dungeon::Room::Direction> directions) const;

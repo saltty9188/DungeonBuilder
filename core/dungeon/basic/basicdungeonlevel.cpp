@@ -1,4 +1,5 @@
 #include "basicdungeonlevel.h"
+#include <string>
 
 using namespace core::dungeon::basic;
 

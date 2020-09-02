@@ -1,5 +1,6 @@
 #ifndef OPENDOORWAY_H
 #define OPENDOORWAY_H
+
 #include "../doorway.h"
 
 namespace core::dungeon::common {

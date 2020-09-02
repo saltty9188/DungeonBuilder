@@ -1,6 +1,5 @@
 #include "quartzchamber.h"
 #include "rockwall.h"
-#include "../roomedge.h"
 
 using namespace core::dungeon::basic;
 

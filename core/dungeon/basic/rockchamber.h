@@ -1,6 +1,8 @@
 #ifndef ROCKCHAMBER_H
 #define ROCKCHAMBER_H
+
 #include "../room.h"
+
 namespace core::dungeon::basic {
 class RockChamber : public Room
 {

@@ -1,5 +1,6 @@
 #include "dungeonlevelbuilder.h"
 #include "core/game.h"
+
 using namespace core::dungeon;
 
 DungeonLevelBuilder::DungeonLevelBuilder(): _level{nullptr}

@@ -2,7 +2,6 @@
 #define ROOM_H
 
 #include <string>
-#include <vector>
 #include <array>
 #include <memory>
 #include "../creatures/abstractcreature.h"
@@ -17,7 +16,7 @@ namespace core::dungeon {
     {
     public:
         Room(int id);
-        virtual ~Room();
+        virtual ~Room() = default;
 
         virtual std::string description() const = 0;
         std::array<std::string, 5> display() const;

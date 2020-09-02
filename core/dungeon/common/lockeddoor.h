@@ -1,5 +1,6 @@
 #ifndef LOCKEDDOOR_H
 #define LOCKEDDOOR_H
+
 #include "../doorway.h"
 
 namespace core::dungeon::common {

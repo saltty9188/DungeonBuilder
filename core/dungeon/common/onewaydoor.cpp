@@ -1,5 +1,4 @@
 #include "onewaydoor.h"
-#include "../room.h"
 
 using namespace core::dungeon::common;
 

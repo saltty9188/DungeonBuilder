@@ -2,6 +2,7 @@
 #define WALL_H
 
 #include "roomedge.h"
+
 namespace core::dungeon {
     class Wall : public RoomEdge
     {
