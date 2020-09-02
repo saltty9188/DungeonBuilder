@@ -3,8 +3,6 @@
 
 using namespace std;
 
-using namespace core;
-
 int main()
 {
     core::MenuInterface menuInterface{std::cout, std::cin};

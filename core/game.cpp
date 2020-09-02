@@ -38,12 +38,11 @@ Game & Game::instance() {
 }
 
 void Game::setDungeonType(std::unique_ptr<core::dungeon::DungeonLevelBuilder> builder) {
-    _builder.release();
     _builder = std::move(builder);
 }
 
 void Game::createExampleLevel() {
-    _builder.release();
+    //_builder.release();
     _builder = std::make_unique<basic::BasicDungeonLevelBuilder>();
 
     _builder->buildDungeonLevel("Example Dungeon Level", 3, 3);

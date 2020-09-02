@@ -13,7 +13,7 @@ using namespace core::items;
     {
     public:
         DungeonLevelBuilder();
-        virtual ~DungeonLevelBuilder() = default;
+        virtual ~DungeonLevelBuilder();
 
         virtual void buildDungeonLevel(std::string name, int width, int height);
         virtual std::shared_ptr<Room> buildRoom(int id);
@@ -42,10 +42,10 @@ using namespace core::items;
         virtual void generateCreatures() = 0;
         std::shared_ptr<Item> randomItem() const;
         std::shared_ptr<AbstractCreature> randomCreature() const;
-        void buildDungeonLevel(std::shared_ptr<DungeonLevel> dungeonLevel);
+        void buildDungeonLevel(DungeonLevel *dungeonLevel);
 
     private:
-        std::shared_ptr<DungeonLevel> _level;
+        DungeonLevel * _level;
         std::vector<std::shared_ptr<Consumable>> _prototypeConsumables;
         std::vector<std::shared_ptr<Weapon>> _prototypeWeapons;
         std::vector<std::shared_ptr<AbstractCreature>> _prototypeCreatures;

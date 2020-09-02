@@ -7,11 +7,15 @@ DungeonLevelBuilder::DungeonLevelBuilder(): _level{nullptr}
 
 }
 
+DungeonLevelBuilder::~DungeonLevelBuilder() {
+    delete _level;
+}
+
 void DungeonLevelBuilder::buildDungeonLevel(std::string name, int width, int height) {
 
 }
 
-void DungeonLevelBuilder::buildDungeonLevel(std::shared_ptr<DungeonLevel> dungeonLevel) {
+void DungeonLevelBuilder::buildDungeonLevel(DungeonLevel *dungeonLevel) {
     _level = dungeonLevel;
 }
 
@@ -41,7 +45,7 @@ void DungeonLevelBuilder::buildCreature(std::shared_ptr<Room> room) {
 }
 
 DungeonLevel * DungeonLevelBuilder::getDungeonLevel() const {
-    return _level.get();
+    return _level;
 }
 
 void DungeonLevelBuilder::insertConsumable(std::shared_ptr<Consumable> consumable) {

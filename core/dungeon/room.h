@@ -17,7 +17,7 @@ namespace core::dungeon {
     {
     public:
         Room(int id);
-        virtual ~Room() = default;
+        virtual ~Room();
 
         virtual std::string description() const = 0;
         std::array<std::string, 5> display() const;

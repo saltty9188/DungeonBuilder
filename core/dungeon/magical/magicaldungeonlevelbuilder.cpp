@@ -47,7 +47,7 @@ void MagicalDungeonLevelBuilder::generateCreatures() {
  * @param height The height of the new dungeon.
  */
 void MagicalDungeonLevelBuilder::buildDungeonLevel(std::string name, int width, int height) {
-    DungeonLevelBuilder::buildDungeonLevel(std::make_shared<MagicalDungeonLevel>(name, width, height));
+    DungeonLevelBuilder::buildDungeonLevel(new MagicalDungeonLevel(name, width, height));
 }
 
 /**

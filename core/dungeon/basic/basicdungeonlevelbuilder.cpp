@@ -46,7 +46,7 @@ void BasicDungeonLevelBuilder::generateCreatures() {
  * @param height The height of the new dungeon.
  */
 void BasicDungeonLevelBuilder::buildDungeonLevel(std::string name, int width, int height) {
-    DungeonLevelBuilder::buildDungeonLevel(std::make_shared<BasicDungeonLevel>(name, width, height));
+    DungeonLevelBuilder::buildDungeonLevel(new BasicDungeonLevel(name, width, height));
 }
 
 /**

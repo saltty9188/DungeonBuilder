@@ -8,6 +8,10 @@ Room::Room(int id): _id{id}, _edges{}
 
 }
 
+Room::~Room() {
+    std::cout << "Room Destroyed" << std::endl;
+}
+
 /**
  * @brief Returns the item contained within this room.
  * @return The item contained within this room.

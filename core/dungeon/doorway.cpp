@@ -1,4 +1,5 @@
 #include "doorway.h"
+#include <iostream>
 
 using namespace core::dungeon;
 
@@ -8,7 +9,7 @@ Doorway::Doorway():RoomEdge{}, _opposite{nullptr}, _entrance{false}, _exit{false
 }
 
 Doorway::~Doorway() {
-    delete _opposite;
+    //delete _opposite;
 }
 
 /**
