@@ -51,3 +51,7 @@ char OneWayDoor::displayCharacter() const {
    }
 }
 
+bool OneWayDoor::isPassage() const {
+    return false;
+}
+

@@ -119,12 +119,12 @@ void Game::createRandomLevel(const std::string &name, int width, int height) {
         int exitIndex{(int) (randomDouble() * width) + (width * height - width + 1)};
         allowedDirections = {Room::Direction::South};
         // Allow east or west exits if its on one of the corners AND the entrance hasn't been placed there already
-        if(isEdge(Room::Direction::West, *_builder->getDungeonLevel()->retrieveRoom(exitIndex)) &&
-                !_builder->getDungeonLevel()->retrieveRoom(exitIndex)->edge(Room::Direction::West)->isPassage()) {
+        if(isEdge(Room::Direction::West, *_builder->getDungeonLevel()->retrieveRoom(exitIndex)) &&     
+                !(std::dynamic_pointer_cast<Doorway>(_builder->getDungeonLevel()->retrieveRoom(exitIndex)->edge(Room::Direction::West)))) {
             allowedDirections.push_back(Room::Direction::West);
         }
         if(isEdge(Room::Direction::East, *_builder->getDungeonLevel()->retrieveRoom(exitIndex)) &&
-                  !_builder->getDungeonLevel()->retrieveRoom(exitIndex)->edge(Room::Direction::East)->isPassage()) {
+                  !(std::dynamic_pointer_cast<Doorway>(_builder->getDungeonLevel()->retrieveRoom(exitIndex)->edge(Room::Direction::East)))) {
             allowedDirections.push_back(Room::Direction::East);
         }
 
@@ -298,12 +298,10 @@ bool Game::isCorner(const dungeon::Room &room) const {
 bool Game::hasExit(const dungeon::Room &room) const {
     std::vector<Room::Direction> directions = {Room::Direction::North, Room::Direction::East, Room::Direction::South, Room::Direction::West};
     for(Room::Direction direction : directions) {
-        if(room.edge(direction)->isPassage()) {
-            // Cast to Doorway
-            std::shared_ptr<Doorway> door = std::dynamic_pointer_cast<Doorway>(room.edge(direction));
-            if(door->isExit()) {
-                return true;
-            }
+        // Cast to Doorway
+        std::shared_ptr<Doorway> door = std::dynamic_pointer_cast<Doorway>(room.edge(direction));
+        if(door && door->isExit()) {
+            return true;
         }
     }
     return false;
@@ -312,12 +310,10 @@ bool Game::hasExit(const dungeon::Room &room) const {
 bool Game::hasEntrance(const dungeon::Room &room) const {
     std::vector<Room::Direction> directions = {Room::Direction::North, Room::Direction::East, Room::Direction::South, Room::Direction::West};
     for(Room::Direction direction : directions) {
-        if(room.edge(direction)->isPassage()) {
-            // Cast to Doorway
-            std::shared_ptr<Doorway> door = std::dynamic_pointer_cast<Doorway>(room.edge(direction));
-            if(door->isEntrance()) {
-                return true;
-            }
+        // Cast to Doorway
+        std::shared_ptr<Doorway> door = std::dynamic_pointer_cast<Doorway>(room.edge(direction));
+        if(door && door->isEntrance()) {
+            return true;
         }
     }
     return false;
@@ -352,14 +348,12 @@ int Game::doorCount(const dungeon::Room &room, bool includeEntranceExit) const {
     std::vector<Room::Direction> directions{Room::Direction::North, Room::Direction::East, Room::Direction::South, Room::Direction::West};
     int count{0};
     for (Room::Direction direction : directions) {
-        if(room.edge(direction)->isPassage()) {
-            // Cast to doorway
-            std::shared_ptr<Doorway> door = std::dynamic_pointer_cast<Doorway>(room.edge(direction));
-
-            if(((door->isExit() || door->isEntrance()) && includeEntranceExit) ||
-                    !(door->isExit() || door->isEntrance())) {
+        // Cast to doorway
+        std::shared_ptr<Doorway> door = std::dynamic_pointer_cast<Doorway>(room.edge(direction));
+        // Increase count if a door is present
+        if(door && (((door->isExit() || door->isEntrance()) && includeEntranceExit) ||
+                    !(door->isExit() || door->isEntrance()))) {
                 count++;
-            }
         }
     }
 
@@ -371,7 +365,7 @@ std::vector<Room::Direction> Game::availableEdges(const Room &room) const {
     std::vector<Room::Direction> availableDirections{};
 
     for(Room::Direction direction : allDirections) {
-        if(!isEdge(direction, room) && !room.edge(direction)->isPassage()) {
+        if(!isEdge(direction, room) && !(std::dynamic_pointer_cast<Doorway>(room.edge(direction)))) {
             availableDirections.push_back(direction);
         }
     }

@@ -42,11 +42,9 @@ void Room::setCreature(const std::shared_ptr<AbstractCreature> &newCreature) {
 
 bool Room::hasExit() const {
     for (auto edge : _edges) {
-        if(edge->isPassage()) {
-            std::shared_ptr<Doorway> temp = std::dynamic_pointer_cast<Doorway>(edge);
-            if(temp->isExit()) {
-                return true;
-            }
+        std::shared_ptr<Doorway> temp = std::dynamic_pointer_cast<Doorway>(edge);
+        if(temp && temp->isExit()) {
+            return true;
         }
     }
     return false;

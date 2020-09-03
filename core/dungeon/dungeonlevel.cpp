@@ -1,5 +1,6 @@
 #include "dungeonlevel.h"
 #include "roomedge.h"
+#include "doorway.h"
 #include <iostream>
 
 using namespace core::dungeon;
@@ -92,7 +93,8 @@ std::vector<std::string> DungeonLevel::display() const {
             // Row between rooms
             if((y-5) % 6 == 0) {
                 string.append("     ");
-                if(_rooms[currentRoomIndex]->edge(Room::Direction::South)->isPassage() && _rooms[currentRoomIndex + _width]->edge(Room::Direction::North)->isPassage()) {
+                if(std::dynamic_pointer_cast<Doorway>(_rooms[currentRoomIndex]->edge(Room::Direction::South)) &&
+                        std::dynamic_pointer_cast<Doorway>(_rooms[currentRoomIndex + _width]->edge(Room::Direction::North))) {
                     string.append("|");
                 } else {
                     string.append(" ");
@@ -105,8 +107,8 @@ std::vector<std::string> DungeonLevel::display() const {
                 // center row of a room and we're not on the last room of a row and
                 // if both rooms have connecting doors add the extra dashes
                 if(((y-2) % 6 == 0) && x != _width - 1 &&
-                        _rooms[currentRoomIndex]->edge(Room::Direction::East)->isPassage() &&
-                        _rooms[currentRoomIndex + 1]->edge(Room::Direction::West)->isPassage()) {
+                        std::dynamic_pointer_cast<Doorway>(_rooms[currentRoomIndex]->edge(Room::Direction::East)) &&
+                        std::dynamic_pointer_cast<Doorway>(_rooms[currentRoomIndex + 1]->edge(Room::Direction::West))) {
                     string.append("--");
 
                 } else {

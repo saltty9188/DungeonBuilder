@@ -14,7 +14,6 @@ namespace core::dungeon {
         bool isExit() const;
         void setAsEntrance();
         void setAsExit();
-        virtual bool isPassage() const override;
     private:
         Doorway * _opposite;
         bool _entrance;

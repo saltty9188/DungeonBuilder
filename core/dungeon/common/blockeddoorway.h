@@ -11,6 +11,7 @@ namespace core::dungeon::common {
         virtual ~BlockedDoorway() = default;
         virtual std::string description() const override;
         virtual char displayCharacter() const override;
+        virtual bool isPassage() const override;
     };
 }
 
