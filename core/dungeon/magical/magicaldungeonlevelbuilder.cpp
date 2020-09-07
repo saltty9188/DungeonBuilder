@@ -19,8 +19,7 @@ using core::creatures::Monster;
 using namespace core::dungeon;
 
 
-MagicalDungeonLevelBuilder::MagicalDungeonLevelBuilder()
-{
+MagicalDungeonLevelBuilder::MagicalDungeonLevelBuilder() {
     generateItems();
     generateCreatures();
 }
@@ -40,21 +39,11 @@ void MagicalDungeonLevelBuilder::generateCreatures() {
     insertCreature(std::make_shared<Monster>("Dragon"));
     insertCreature(std::make_shared<Monster>("Evil Wizard"));
 }
-/**
- * @brief Builds a new BasicDungeonLevel with the provided attributes.
- * @param name   The name of the new dungeon.
- * @param width  The width of the new dungeon.
- * @param height The height of the new dungeon.
- */
+
 void MagicalDungeonLevelBuilder::buildDungeonLevel(const std::string &name, int width, int height) {
     DungeonLevelBuilder::buildDungeonLevel(new MagicalDungeonLevel(name, width, height));
 }
 
-/**
- * @brief Builds a new Room and adds it to the current Basic Dungeon Level.
- * @param id The ID of the new Room being built.
- * @return The Room that was just built.
- */
 std::shared_ptr<Room> MagicalDungeonLevelBuilder::buildRoom(int id) {
     if(((int) (core::Game::instance().randomDouble() * 10)) % 4 == 0) {
         getDungeonLevel()->addRoom(std::make_shared<AlchemistsLaboratory>(id));
@@ -64,20 +53,6 @@ std::shared_ptr<Room> MagicalDungeonLevelBuilder::buildRoom(int id) {
     return getDungeonLevel()->retrieveRoom(id);
 }
 
-
-/**
- * @brief Builds a Doorway between the origin and destination Rooms.
- *
- * Builds a Doorway between the origin and destination Rooms. The Doorway is set to the Direction
- * specified in the origin Room and the opposing direction in the destination Room.
- * The type of Doorway built is determined by the MoveConstraints parameter.
- *
- * @param origin        The origin Room to house the Doorway.
- * @param destination   The destination Room to house the Doorway.
- * @param direction     The Direction that the Doorway will be built in the origin Room.
- * @param constraints   The MoveConstraints that determine the type of Doorway built. Multiple MoveConstraints
- *                      may be combined using bitwise or (|).
- */
 void MagicalDungeonLevelBuilder::buildDoorway(const std::shared_ptr<Room> &origin, const std::shared_ptr<Room> &destination,
                                             const Room::Direction &direction, const MoveContraints &constraints) {
     // Extract the move constraints
@@ -155,11 +130,6 @@ void MagicalDungeonLevelBuilder::buildDoorway(const std::shared_ptr<Room> &origi
     }
 }
 
-/**
- * @brief Builds a OneWayDoor at the specified Direction of the given Room and marks it as the entrance.
- * @param room      The Room to have the entrance built in.
- * @param direction The Direction where the entrance will be built.
- */
 void MagicalDungeonLevelBuilder::buildEntrance(const std::shared_ptr<Room> &room, const Room::Direction &direction) {
     room->setEdge(direction, std::make_shared<OneWayDoor>());
     // Cast to doorway to set as entrance
@@ -167,11 +137,6 @@ void MagicalDungeonLevelBuilder::buildEntrance(const std::shared_ptr<Room> &room
     door->setAsEntrance();
 }
 
-/**
- * @brief Builds a OneWayDoor at the specified Direction of the given Room and marks it as the exit.
- * @param room      The Room to have the exit built in.
- * @param direction The Direction where the exit will be built.
- */
 void MagicalDungeonLevelBuilder::buildExit(const std::shared_ptr<Room> &room, const Room::Direction &direction) {
     room->setEdge(direction, std::make_shared<OneWayDoor>());
     // Cast to doorway to set as entrance
@@ -179,18 +144,10 @@ void MagicalDungeonLevelBuilder::buildExit(const std::shared_ptr<Room> &room, co
     door->setAsExit();
 }
 
-/**
- * @brief Builds a clone of a random Item and inserts it into the chosen Room.
- * @param room The Room to receive the Item.
- */
 void MagicalDungeonLevelBuilder::buildItem(const std::shared_ptr<Room> &room) {
     room->setItem(randomItem()->clone());
 }
 
-/**
- * @brief Builds a clone of a random Abstract Creature and inserts it into the chosen Room.
- * @param room The Room to receive the Creature.
- */
 void MagicalDungeonLevelBuilder::buildCreature(const std::shared_ptr<Room> &room) {
     room->setCreature(randomCreature()->clone());
 }

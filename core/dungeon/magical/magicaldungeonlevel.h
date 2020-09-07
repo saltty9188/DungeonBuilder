@@ -7,8 +7,19 @@ namespace core::dungeon::magical {
     class MagicalDungeonLevel : public DungeonLevel
     {
     public:
+        /**
+         * @brief The constructor for MagicDungeonLevel accepting a string containing the name of the MagicDungeonLevel and its width and height.
+         * @param name   The name of the MagicDungeonLevel.
+         * @param width  The width of the MagicDungeonLevel.
+         * @param height The height of the MagicDungeonLevel.
+         */
         MagicalDungeonLevel(const std::string &name, int width, int height);
         virtual ~MagicalDungeonLevel() = default;
+
+        /**
+         * @brief A description of this Dungeon Level.
+         * @return A description of this Dungeon Level.
+         */
         virtual std::string description() const override;
     };
 }

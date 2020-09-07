@@ -7,9 +7,17 @@ namespace core::items {
     class Consumable : public Item
     {
     public:
+        /**
+         * @brief The constructor for Consumable that accepts a string containing the Consumable's name.
+         * @param name The Consumable's name.
+         */
         Consumable(const std::string &name);
         virtual ~Consumable() = default;
 
+        /**
+         * @brief Returns a deep-copy clone of this Consumable.
+         * @return A deep-copy clone of this Consumable.
+         */
         virtual std::shared_ptr<Item> clone() const override;
     };
 }

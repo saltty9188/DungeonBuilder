@@ -7,41 +7,21 @@ using namespace core;
 using core::dungeon::basic::BasicDungeonLevelBuilder;
 using core::dungeon::magical::MagicalDungeonLevelBuilder;
 
-/**
- * @brief The constructor for MenuInterface accepting a reference to an ostream object and an istream object.
- * @param display The ostream object reference that the MenuInterface will use to display text.
- * @param input   The istream object reference that the MenuInterface will use to receive input.
- */
 MenuInterface::MenuInterface(std::ostream &display, std::istream &input): _display{display}, _input{input} {
 
 }
 
-/**
- * @brief Displays the welcome message to the screen.
- * @param author The author of the program.
- * @param title  The title of the program.
- */
 void MenuInterface::displayWelcome(const std::string &author, const std::string &title) const{
     _display << "Welcome to: " << title << std::endl;
     _display << "      Developed by " << author << std::endl;
     _display << "COMP 3023 Software Development with C++" << std::endl;
 }
 
-/**
- * @brief Initiates the main loop of the program.
- */
+
 void MenuInterface::run() const{
     displayMainMenu();
 }
 
-/**
- * @brief Displays the main menu for the program.
- *
- * Displays the main menu for the program and handles user input.
- * Allows the user to generate the example dungeon, generate a random dungeon
- * or exit the program.
- * The program moves to the View Menu once a dungeon is created.
- */
 void MenuInterface::displayMainMenu() const {
     // Want the menu to stay up until the user goes to another menu
     while(true) {
@@ -82,9 +62,6 @@ void MenuInterface::displayMainMenu() const {
     }
 }
 
-/**
- * @brief Prompts the user for the parameters of a random dungeon and generates it.
- */
 void MenuInterface::generateRandomDungeon() const {
     // Prompt for the user to enter the level name.
     _display << "\nWhat would you like to call the level?" << std::endl;
@@ -161,10 +138,6 @@ void MenuInterface::generateRandomDungeon() const {
 
 }
 
-/**
- * @brief Displays prompt confirming the user wants to quit the game.
- * @return True if the user wishes to quit the game, false otherwise.
- */
 bool MenuInterface::quitGame() const {
     // Want menu to stay looping until valid input is received
     while(true) {
@@ -187,13 +160,6 @@ bool MenuInterface::quitGame() const {
     }
 }
 
-/**
- * @brief Displays view menu for the current dungeon.
- *
- * Allows the user to get a description for the current level, and proceed to
- * the exploration menu. Also allows for a visual representation of the current dungeon,
- * and for the user to return to the previous menu.
- */
 void MenuInterface::displayViewMenu() const {
     // Loop until we return to the previous menu
     while(true) {
@@ -229,12 +195,6 @@ void MenuInterface::displayViewMenu() const {
     }
 }
 
-/**
- * @brief Displays the exploration menu.
- *
- * Allows the user to describe a room in the dungeon or return
- * to the previous menu.
- */
 void MenuInterface::displayExplorationMenu() const {
     while(true) {
         _display << "\nWhat would you like to do?" << std::endl;
@@ -259,9 +219,6 @@ void MenuInterface::displayExplorationMenu() const {
     }
 }
 
-/**
- * @brief Describes a room in the dungeon specified by the user.
- */
 void MenuInterface::describeRoom() const {
     bool selecting{true};
     // Want to loop until the user inputs a valid room number.

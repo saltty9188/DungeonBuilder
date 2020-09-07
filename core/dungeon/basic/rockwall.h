@@ -9,6 +9,11 @@ namespace core::dungeon::basic {
     public:
         RockWall();
         virtual ~RockWall() = default;
+
+        /**
+         * @brief The description of this Rock Wall.
+         * @return The description of this Rock Wall.
+         */
         virtual std::string description() const override;
     };
 }

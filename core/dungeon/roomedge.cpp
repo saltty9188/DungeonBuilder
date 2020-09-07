@@ -2,8 +2,7 @@
 
 using namespace core::dungeon;
 
-RoomEdge::RoomEdge(): _direction{}
-{
+RoomEdge::RoomEdge(): _direction{} {
 
 }
 

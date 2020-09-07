@@ -2,8 +2,7 @@
 
 using namespace core::dungeon::magical;
 
-MagicWall::MagicWall()
-{
+MagicWall::MagicWall() {
 
 }
 

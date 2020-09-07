@@ -7,8 +7,17 @@ namespace core::dungeon::basic {
 class RockChamber : public Room
 {
 public:
+    /**
+     * @brief The constructor for RockChamber that accepts the integer ID of the Room and sets all the RoomEdges to RockWalls.
+     * @param id The ID of the Room.
+     */
     RockChamber(int id);
     virtual ~RockChamber() = default;
+
+    /**
+     * @brief Returns a description of this Room, its Item and Creature and its RoomEdges.
+     * @return A description of this Room, its Item and Creature and its RoomEdges.
+     */
     virtual std::string description() const override;
 };
 }

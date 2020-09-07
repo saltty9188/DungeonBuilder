@@ -3,8 +3,7 @@
 
 using namespace core::dungeon::basic;
 
-QuartzChamber::QuartzChamber(int id): Room{id}
-{
+QuartzChamber::QuartzChamber(int id): Room{id} {
     // Initialise each edge to be a Rock Wall
     setEdge(Room::Direction::North, std::make_shared<RockWall>());
     setEdge(Room::Direction::East, std::make_shared<RockWall>());

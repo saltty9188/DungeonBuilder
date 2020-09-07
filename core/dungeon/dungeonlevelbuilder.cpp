@@ -3,8 +3,7 @@
 
 using namespace core::dungeon;
 
-DungeonLevelBuilder::DungeonLevelBuilder(): _level{nullptr}
-{
+DungeonLevelBuilder::DungeonLevelBuilder(): _level{nullptr} {
 
 }
 
@@ -78,23 +77,11 @@ std::shared_ptr<AbstractCreature> DungeonLevelBuilder::randomCreature() const {
     return _prototypeCreatures[randomIndex];
 }
 
-/**
- * @brief Overloads the bitwise or operator for use with two MoveContraints values.
- * @param lhs The first MoveConstraints value.
- * @param rhs The second MoveConstraints value.
- * @return The result of lhs | rhs.
- */
 DungeonLevelBuilder::MoveContraints core::dungeon::operator|(const DungeonLevelBuilder::MoveContraints &lhs,
                                                              const DungeonLevelBuilder::MoveContraints &rhs) {
     return static_cast<DungeonLevelBuilder::MoveContraints>(static_cast<unsigned>(lhs) | static_cast<unsigned>(rhs));
 }
 
-/**
- * @brief Overloads the bitwise and operator for use with two MoveContraints values.
- * @param lhs The first MoveConstraints value.
- * @param rhs The second MoveConstraints value.
- * @return The result of lhs & rhs.
- */
 DungeonLevelBuilder::MoveContraints core::dungeon::operator&(const DungeonLevelBuilder::MoveContraints &lhs,
                                                              const DungeonLevelBuilder::MoveContraints &rhs) {
     return static_cast<DungeonLevelBuilder::MoveContraints>(static_cast<unsigned>(lhs) & static_cast<unsigned>(rhs));

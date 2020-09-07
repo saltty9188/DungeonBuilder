@@ -3,8 +3,7 @@
 
 using namespace core::dungeon::magical;
 
-AlchemistsLaboratory::AlchemistsLaboratory(int id): Room{id}
-{
+AlchemistsLaboratory::AlchemistsLaboratory(int id): Room{id} {
     // Initialise each edge to be a Magic Wall
     setEdge(Room::Direction::North, std::make_shared<MagicWall>());
     setEdge(Room::Direction::East, std::make_shared<MagicWall>());

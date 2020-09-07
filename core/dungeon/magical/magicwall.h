@@ -9,6 +9,11 @@ namespace core::dungeon::magical {
     public:
         MagicWall();
         virtual ~MagicWall() = default;
+
+        /**
+         * @brief Returns a description for this Magic Wall.
+         * @return A description for this Magic Wall.
+         */
         virtual std::string description() const override;
     };
 }

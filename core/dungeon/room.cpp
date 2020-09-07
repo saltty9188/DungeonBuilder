@@ -3,39 +3,22 @@
 
 using namespace core::dungeon;
 
-Room::Room(int id): _id{id}, _edges{}
-{
+Room::Room(int id): _id{id}, _edges{} {
 
 }
 
-/**
- * @brief Returns the item contained within this room.
- * @return The item contained within this room.
- */
 std::shared_ptr<Item> Room::item() const {
     return _item;
 }
 
-/**
- * @brief Sets the Item contained within this Room to be the given Item.
- * @param newItem The Item to be put in this Room.
- */
 void Room::setItem(const std::shared_ptr<Item> &newItem) {
     _item = newItem;
 }
 
-/**
- * @brief Returns the Creature contained within this room.
- * @return The Creature contained within this room.
- */
 std::shared_ptr<AbstractCreature> Room::creature() const {
     return _creature;
 }
 
-/**
- * @brief Sets the Creature contained within this Room to be the given Creature.
- * @param newCreature The Creature to be put in this Room.
- */
 void Room::setCreature(const std::shared_ptr<AbstractCreature> &newCreature) {
     _creature = newCreature;
 }
@@ -50,11 +33,6 @@ bool Room::hasExit() const {
     return false;
 }
 
-/**
- * @brief Sets the edge at the given Direction to the given Room Edge.
- * @param direction The Direction of the edge to be set.
- * @param roomEdge  The Room Edge being set.
- */
 void Room::setEdge(const Direction &direction, const std::shared_ptr<RoomEdge> &roomEdge) {
     if(roomEdge) {
         roomEdge->setDirection(direction);
@@ -78,11 +56,6 @@ void Room::setEdge(const Direction &direction, const std::shared_ptr<RoomEdge> &
     }
 }
 
-/**
- * @brief Returns a shared pointer to the Room Edge at the given Direction.
- * @param direction The Direction of the Room Edge to be retrieved.
- * @return A shared pointer to the Room Edge at the given Direction.
- */
 std::shared_ptr<RoomEdge> Room::edge(const Direction &direction) const {
     switch(direction) {
     case Room::Direction::North:
@@ -134,11 +107,6 @@ int Room::id() const {
     return _id;
 }
 
-/**
- * @brief Returns the opposite direction to the Direction supplied.
- * @param direction The Direction to get the opposite of.
- * @return The opposite direction to the Direction supplied.
- */
 Room::Direction Room::oppositeDirection(const Direction &direction) {
     switch(direction) {
     case Room::Direction::North:

@@ -5,16 +5,10 @@
 
 using namespace core::dungeon;
 
-DungeonLevel::DungeonLevel(const std::string &name, int width, int height): _name{name}, _width{width}, _height{height}
-{
+DungeonLevel::DungeonLevel(const std::string &name, int width, int height): _name{name}, _width{width}, _height{height} {
 
 }
 
-/**
- * @brief Adds the given Room to the Dungeon Level.
- * @param room The Room to be added.
- * @return True if the room was successfully added, false otherwise.
- */
 bool DungeonLevel::addRoom(const std::shared_ptr<Room> &room) {
     if(room) {
         _rooms.push_back(room);
@@ -23,11 +17,6 @@ bool DungeonLevel::addRoom(const std::shared_ptr<Room> &room) {
     return false;
 }
 
-/**
- * @brief Retrieves the Room with the given ID.
- * @param id The ID of the required Room.
- * @return The required Room, or nullptr if it is not found.
- */
 std::shared_ptr<Room> DungeonLevel::retrieveRoom(int id) {
     if(id > 0 && id <= _rooms.size()) {
         return _rooms[id - 1];
@@ -36,47 +25,22 @@ std::shared_ptr<Room> DungeonLevel::retrieveRoom(int id) {
     }
 }
 
-/**
- * @brief Returns the width of this Dungeon Level.
- * @return The width of this Dungeon Level.
- */
 int DungeonLevel::width() const {
     return _width;
 }
 
-/**
- * @brief Returns the height of this Dungeon Level.
- * @return The height of this Dungeon Level.
- */
 int DungeonLevel::height() const {
     return _height;
 }
 
-/**
- * @brief Returns the number of rooms in this Dungeon Level.
- * @return The number of rooms in this Dungeon Level.
- */
 int DungeonLevel::numberOfRooms() const {
     return _rooms.size();
 }
 
-/**
- * @brief Returns the name of this Dungeon Level.
- * @return The name of this Dungeon Level.
- */
 std::string DungeonLevel::name() const {
     return _name;
 }
 
-/**
- * @brief Generates a visual display of the current Dungeon Level.
- *
- * Generate a display of the Rooms within this Dungeon Level and
- * the items/monsters within each. Connections between Doorways are
- * highlighted by dashed lines.
- *
- * @return A vector of strings holding the visual display.
- */
 std::vector<std::string> DungeonLevel::display() const {
     std::vector<std::string> returnVector{};
 
@@ -126,7 +90,6 @@ std::vector<std::string> DungeonLevel::display() const {
 
     return returnVector;
 }
-
 
 std::ostream& core::dungeon::operator<<(std::ostream &out, const DungeonLevel &level) {
 

@@ -15,19 +15,14 @@ using namespace core::dungeon;
 std::mt19937 _randomGenerator{uint32_t(time(nullptr))}; //!< Mersenne Twister random number generator seeded by current time
 std::uniform_real_distribution<double> _realDistribution{0.0, 1.0}; //!< For random numbers between 0.0 & 1.0
 
-Game::Game(): _level{nullptr}, _builder{nullptr}
-{
+Game::Game(): _level{nullptr}, _builder{nullptr} {
 
 }
 
 Game::~Game() {
-    delete _level;
+
 }
 
-/**
- * @brief Gets the instance of the Game class.
- * @return The instance of the Game class.
- */
 Game & Game::instance() {
     if(_theInstance == nullptr) {
         Game::_theInstance.reset(new Game);
@@ -41,7 +36,6 @@ void Game::setDungeonType(std::unique_ptr<core::dungeon::DungeonLevelBuilder> bu
 }
 
 void Game::createExampleLevel() {
-    //_builder.release();
     _builder = std::make_unique<basic::BasicDungeonLevelBuilder>();
 
     _builder->buildDungeonLevel("Example Dungeon Level", 3, 3);
@@ -242,16 +236,6 @@ Room::Direction Game::randomDirection(const std::vector<Room::Direction> &direct
     return directions[randomDirection];
 }
 
-/**
- * @brief Returns whether or the supplied Room is at the edge of the Dungeon Level.
- *
- * Returns whether or the supplied Room is at the edge of the Dungeon Level. The edge of the
- * dungeon being checked is determined by the dungeonEdge parameter.
- *
- * @param dungeonEdge The edge of the dungeon being checked.
- * @param room        The Room being checked.
- * @return True if the Room is on the edge of the Dungeon, false otherwise.
- */
 bool Game::isEdge(const dungeon::Room::Direction dungeonEdge, const dungeon::Room &room) const {
     int dungeonWidth = _builder->getDungeonLevel()->width();
     int dungeonHeight = _builder->getDungeonLevel()->height();
@@ -319,12 +303,6 @@ bool Game::hasEntrance(const dungeon::Room &room) const {
     return false;
 }
 
-/**
- * @brief Returns a random Move Constraint.
- * @param originConstraint Set to true if the Constraint is for the origin, constraint is
- *                         for the destination if set to false.
- * @return A random Move Constraint.
- */
 DungeonLevelBuilder::MoveContraints Game::randomConstraint(bool originConstraint) const {
     int randomNumber{(int) (randomDouble() * 100)};
     if(randomNumber < 40) {
@@ -376,10 +354,6 @@ DungeonLevel & Game::displayLevel() const {
     return *_level;
 }
 
-/**
- * @brief Returns a random double between 0.0 and 1.0.
- * @return A random double between 0.0 and 1.0.
- */
 double Game::randomDouble() const{
   return _realDistribution(_randomGenerator);
 }
