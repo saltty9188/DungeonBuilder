@@ -350,8 +350,20 @@ std::vector<Room::Direction> Game::availableEdges(const Room &room) const {
     return availableDirections;
 }
 
-DungeonLevel & Game::displayLevel() const {
-    return *_level;
+void Game::displayLevel(std::ostream &display) const {
+    display << *_level << std::endl;
+}
+
+std::string Game::levelDescription() const {
+    return _level->description();
+}
+
+std::string Game::roomDescription(int id) const {
+    return _level->retrieveRoom(id)->description();
+}
+
+int Game::numberOfRooms() const {
+    return _level->numberOfRooms();
 }
 
 double Game::randomDouble() const{

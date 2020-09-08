@@ -172,13 +172,14 @@ void MenuInterface::displayViewMenu() const {
         switch (userInput.at(0)) {
         case 'd':
         case 'D':
-            _display << "\n" << Game::instance().displayLevel().description() << std::endl;
+            _display << "\n" << Game::instance().levelDescription() << std::endl;
             displayExplorationMenu();
             break;
 
         case 'v':
         case 'V':
-            _display << "\n" << Game::instance().displayLevel() << std::endl;
+            _display << std::endl;
+            Game::instance().displayLevel(_display);
             _display << "\n*Press Enter to continue*" << std::endl;
             _input.ignore();
             _input.get();
@@ -223,15 +224,15 @@ void MenuInterface::describeRoom() const {
     bool selecting{true};
     // Want to loop until the user inputs a valid room number.
     while(selecting) {
-        _display << "\nWhich room would you like to describe? (1-" << Game::instance().displayLevel().numberOfRooms() << ")" << std::endl;
+        _display << "\nWhich room would you like to describe? (1-" << Game::instance().numberOfRooms() << ")" << std::endl;
         std::string roomNumberString{};
         _input >> roomNumberString;
         int roomNumber{};
         try {
             roomNumber = std::stoi(roomNumberString);
-            if(roomNumber >= 1 && roomNumber <= Game::instance().displayLevel().numberOfRooms()) {
+            if(roomNumber >= 1 && roomNumber <= Game::instance().numberOfRooms()) {
                 _display << "\nRoom *" << roomNumber << "* is..." << std::endl;
-                _display << *Game::instance().displayLevel().retrieveRoom(roomNumber) << std::endl;
+                _display << Game::instance().roomDescription(roomNumber) << std::endl;
                 _display << "\n*Press Enter to continue*" << std::endl;
                 _input.ignore();
                 _input.get();

@@ -4,6 +4,7 @@
 #include <string>
 #include <memory>
 #include <vector>
+#include <ostream>
 #include "dungeon/dungeonlevel.h"
 #include "dungeon/dungeonlevelbuilder.h"
 #include "dungeon/room.h"
@@ -40,7 +41,31 @@ namespace core {
          * @param height The height of the DungeonLevel (rows).
          */
         void createRandomLevel(const std::string &name, int width, int height);
-        dungeon::DungeonLevel & displayLevel() const;
+
+        /**
+         * @brief Prints the graphical display of the current level to the supplied ostream object reference.
+         * @param display The ostream object reference for the display to be shown to.
+         */
+        void displayLevel(std::ostream &display) const;
+
+        /**
+         * @brief Returns the description of the current DungeonLevel.
+         * @return The description of the current DungeonLevel.
+         */
+        std::string levelDescription() const;
+
+        /**
+         * @brief Returns the description of the specified Room.
+         * @param id The ID of the Room required.
+         * @return The description of the specified Room.
+         */
+        std::string roomDescription(int id) const;
+
+        /**
+         * @brief Returns the number of Rooms in the current DungeonLevel.
+         * @return The number of Rooms in the current DungeonLevel.
+         */
+        int numberOfRooms() const;
 
         /**
          * @brief Returns a random double between 0.0 and 1.0.
