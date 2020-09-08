@@ -7,10 +7,6 @@ DungeonLevelBuilder::DungeonLevelBuilder(): _level{nullptr} {
 
 }
 
-DungeonLevelBuilder::~DungeonLevelBuilder() {
-    delete _level;
-}
-
 void DungeonLevelBuilder::buildDungeonLevel(const std::string &name, int width, int height) {
 
 }

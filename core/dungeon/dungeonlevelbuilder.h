@@ -13,7 +13,7 @@ using namespace core::items;
     {
     public:
         DungeonLevelBuilder();
-        virtual ~DungeonLevelBuilder();
+        virtual ~DungeonLevelBuilder() = default;
 
         /**
          * @brief Builds a new DungeonLevel with the provided attributes.

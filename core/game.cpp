@@ -20,7 +20,7 @@ Game::Game(): _level{nullptr}, _builder{nullptr} {
 }
 
 Game::~Game() {
-
+    delete _level;
 }
 
 Game & Game::instance() {
@@ -31,12 +31,15 @@ Game & Game::instance() {
     return *_theInstance;
 }
 
-void Game::setDungeonType(std::unique_ptr<core::dungeon::DungeonLevelBuilder> builder) {
-    _builder = std::move(builder);
+void Game::setDungeonType(std::shared_ptr<core::dungeon::DungeonLevelBuilder> builder) {
+    _builder = builder;
 }
 
 void Game::createExampleLevel() {
-    _builder = std::make_unique<basic::BasicDungeonLevelBuilder>();
+    delete _level;
+    _level = nullptr;
+
+    _builder = std::make_shared<basic::BasicDungeonLevelBuilder>();
 
     _builder->buildDungeonLevel("Example Dungeon Level", 3, 3);
     for(int i = 1; i <= 9; i++) {
@@ -91,6 +94,9 @@ void Game::createExampleLevel() {
 void Game::createRandomLevel(const std::string &name, int width, int height) {
     // Make sure builder isn't null
     if(_builder) {
+        delete _level;
+        _level = nullptr;
+
         _builder->buildDungeonLevel(name, width, height);
 
         for(int i = 1; i <= width * height; i++) {

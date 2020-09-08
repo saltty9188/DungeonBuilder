@@ -24,7 +24,7 @@ namespace core {
          * @brief Sets the type of DungeonLevel to be built by the random generator..
          * @param builder The new DungeonLevelBuilder.
          */
-        void setDungeonType(std::unique_ptr<dungeon::DungeonLevelBuilder> builder);
+        void setDungeonType(std::shared_ptr<dungeon::DungeonLevelBuilder> builder);
 
         /**
          * @brief Creates the example DungeonLevel.
@@ -80,7 +80,7 @@ namespace core {
         static std::unique_ptr<Game> _theInstance;
 
         dungeon::DungeonLevel *_level;
-        std::unique_ptr<dungeon::DungeonLevelBuilder> _builder;
+        std::shared_ptr<dungeon::DungeonLevelBuilder> _builder;
         dungeon::Room::Direction randomDirection(const std::vector<dungeon::Room::Direction> &directions) const;
 
         /**
