@@ -4,6 +4,9 @@
 #include "../dungeonlevelbuilder.h"
 
 namespace core::dungeon::magical {
+    /**
+     * @brief The MagicalDungeonLevelBuilder class is a DungeonLevelBuilder for building MagicalDungeonLevel.
+     */
     class MagicalDungeonLevelBuilder : public DungeonLevelBuilder
     {
     public:

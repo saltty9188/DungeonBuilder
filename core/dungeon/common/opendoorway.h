@@ -4,6 +4,9 @@
 #include "../doorway.h"
 
 namespace core::dungeon::common {
+    /**
+     * @brief The OpenDoorway class is a free Doorway to another Room.
+     */
     class OpenDoorway : public Doorway
     {
     public:

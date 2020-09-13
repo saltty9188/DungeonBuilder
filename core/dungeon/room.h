@@ -12,6 +12,9 @@ using core::creatures::AbstractCreature;
 
 namespace core::dungeon {
     class RoomEdge;
+    /**
+     * @brief The Room class is an abstract represenation of a Room within the DungeonLevel.
+     */
     class Room
     {
     public:

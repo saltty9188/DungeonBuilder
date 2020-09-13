@@ -4,6 +4,9 @@
 #include "../room.h"
 
 namespace core::dungeon::magical {
+    /**
+     * @brief The EnchantedLibrary class is an enchanted library Room exclusive to MagicalDungeonLevel.
+     */
     class EnchantedLibrary : public Room
     {
     public:

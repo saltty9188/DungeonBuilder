@@ -4,6 +4,9 @@
 #include "../wall.h"
 
 namespace core::dungeon::basic {
+    /**
+     * @brief The RockWall class represents a rock Wall exclusive to BasigDungeonLevel.
+     */
     class RockWall : public Wall
     {
     public:

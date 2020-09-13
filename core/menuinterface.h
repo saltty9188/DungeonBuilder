@@ -5,6 +5,9 @@
 #include <string>
 
 namespace core {
+    /**
+     * @brief The MenuInterface class is responsible for handling interactions between the user and the Game.
+     */
     class MenuInterface
     {
     public:

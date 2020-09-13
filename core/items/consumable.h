@@ -4,6 +4,9 @@
 #include "item.h"
 
 namespace core::items {
+    /**
+     * @brief The Consumable class represents a consumable Item that can be used by the player.
+     */
     class Consumable : public Item
     {
     public:

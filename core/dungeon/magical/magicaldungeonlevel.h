@@ -4,6 +4,9 @@
 #include "../dungeonlevel.h"
 
 namespace core::dungeon::magical {
+    /**
+     * @brief The MagicalDungeonLevel class represents the magical type of DungeonLevel.
+     */
     class MagicalDungeonLevel : public DungeonLevel
     {
     public:

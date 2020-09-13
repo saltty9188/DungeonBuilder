@@ -4,6 +4,9 @@
 #include "item.h"
 
 namespace core::items {
+    /**
+     * @brief The Weapon class represents weapons that can be found and equipped by the player.
+     */
     class Weapon : public Item
     {
     public:

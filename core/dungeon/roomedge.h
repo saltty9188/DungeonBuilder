@@ -5,6 +5,9 @@
 #include "room.h"
 
 namespace core::dungeon {
+    /**
+     * @brief The RoomEdge class is an abstract representation of an edge of its enclosing Room.
+     */
     class RoomEdge
     {
     public:

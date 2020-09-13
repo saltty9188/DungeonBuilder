@@ -4,6 +4,9 @@
 #include "roomedge.h"
 
 namespace core::dungeon {
+    /**
+     * @brief The Wall class is an abstract representation of a Wall.
+     */
     class Wall : public RoomEdge
     {
     public:

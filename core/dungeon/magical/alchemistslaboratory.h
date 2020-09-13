@@ -4,6 +4,9 @@
 #include "../room.h"
 
 namespace core::dungeon::magical {
+    /**
+     * @brief The AlchemistsLaboratory class is an alchemist's laboratory Room exclusive to MagicalDungeonLevel.
+     */
     class AlchemistsLaboratory : public Room
     {
     public:

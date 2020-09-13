@@ -7,6 +7,9 @@
 #include "room.h"
 
 namespace core::dungeon {
+    /**
+     * @brief The DungeonLevel class represents a level of a dungeon within the Game.
+     */
     class DungeonLevel
     {
     public:

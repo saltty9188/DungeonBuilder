@@ -4,6 +4,9 @@
 #include "../dungeonlevelbuilder.h"
 
 namespace core::dungeon::basic {
+    /**
+     * @brief The BasicDungeonLevelBuilder class a DungeonLevelBuilder for building BasicDungeonLevel.
+     */
     class BasicDungeonLevelBuilder : public DungeonLevelBuilder
     {
     public:

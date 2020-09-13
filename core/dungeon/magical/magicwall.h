@@ -4,6 +4,9 @@
 #include "../wall.h"
 
 namespace core::dungeon::magical {
+    /**
+     * @brief The MagicWall class represents a magic Wall exclusive to MagicalDungeonLevel.
+     */
     class MagicWall : public Wall
     {
     public:

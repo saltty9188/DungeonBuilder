@@ -4,6 +4,9 @@
 #include "../doorway.h"
 
 namespace core::dungeon::common {
+    /**
+     * @brief The BlockedDoorway class is a Doorway that has collapsed and is impassable.
+     */
     class BlockedDoorway : public Doorway
     {
     public:

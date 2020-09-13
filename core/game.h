@@ -10,6 +10,9 @@
 #include "dungeon/room.h"
 
 namespace core {
+    /**
+     * @brief The Game class is the singleton through which the DungeonLevel is built and the main game played.
+     */
     class Game
     {
     public:

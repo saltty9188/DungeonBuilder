@@ -4,6 +4,9 @@
 #include "../room.h"
 
 namespace core::dungeon::basic {
+    /**
+     * @brief The QuartzChamber class is a quartz chamber Room exclusive to BasicDungeonLevel.
+     */
     class QuartzChamber : public Room
     {
     public:

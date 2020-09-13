@@ -4,6 +4,9 @@
 #include "../doorway.h"
 
 namespace core::dungeon::common {
+    /**
+     * @brief The OneWayDoor class is an exit Doorway that can only be traversed through a connect OpenDoorway or LockedDoor.
+     */
     class OneWayDoor : public Doorway
     {
     public:

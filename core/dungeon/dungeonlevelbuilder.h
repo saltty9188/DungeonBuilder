@@ -9,6 +9,10 @@
 
 namespace core::dungeon {
 using namespace core::items;
+
+    /**
+     * @brief The DungeonLevelBuilder class is the abstract base for building DungeonLevel.
+     */
     class DungeonLevelBuilder
     {
     public:

@@ -4,25 +4,27 @@
 #include "../doorway.h"
 
 namespace core::dungeon::common {
-class LockedDoor : public Doorway
-{
-public:
-    LockedDoor();
-    virtual ~LockedDoor() = default;
-
     /**
-     * @brief Returns the description of this doorway.
-     * @return Returns the description of this doorway.
+     * @brief The LockedDoor class is a Doorway that requires a key to be opened.
      */
-    virtual std::string description() const override;
+    class LockedDoor : public Doorway
+    {
+    public:
+        LockedDoor();
+        virtual ~LockedDoor() = default;
 
-    /**
-     * @brief Returns the character displayed in the dungeon view output.
-     * @return The character displayed in the dungeon view output.
-     */
-    virtual char displayCharacter() const override;
-};
+        /**
+         * @brief Returns the description of this doorway.
+         * @return Returns the description of this doorway.
+         */
+        virtual std::string description() const override;
 
+        /**
+         * @brief Returns the character displayed in the dungeon view output.
+         * @return The character displayed in the dungeon view output.
+         */
+        virtual char displayCharacter() const override;
+    };
 }
 
 #endif // LOCKEDDOOR_H
