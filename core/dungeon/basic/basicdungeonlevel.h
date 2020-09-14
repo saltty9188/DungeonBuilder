@@ -3,11 +3,6 @@
 
 #include "../dungeonlevel.h"
 
-/**
- * @file core/dungeon/basic/basicdungeonlevel.h
- * @brief The BasicDungeonLevel builder class header.
- */
-
 namespace core::dungeon::basic {
     /**
      * @brief The BasicDungeonLevel class represents the basic type of DungeonLevel
