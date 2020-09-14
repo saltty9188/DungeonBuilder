@@ -14,8 +14,8 @@ namespace core::dungeon::magical {
         virtual ~MagicWall() = default;
 
         /**
-         * @brief Returns a description for this Magic Wall.
-         * @return A description for this Magic Wall.
+         * @brief Returns a description for this MagicWall.
+         * @return A description for this MagicWall.
          */
         virtual std::string description() const override;
     };

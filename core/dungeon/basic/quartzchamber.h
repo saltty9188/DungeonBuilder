@@ -11,7 +11,7 @@ namespace core::dungeon::basic {
     {
     public:
         /**
-         * @brief The constructor for QuartzChamber that accepts the integer ID of the Room and sets all the RoomEdges to RockWalls.
+         * @brief The constructor for QuartzChamber that accepts the integer ID of the Room and sets all the RoomEdge to RockWall.
          * @param id The ID of the Room.
          */
         QuartzChamber(int id);

@@ -11,10 +11,10 @@ namespace core::dungeon::magical {
     {
     public:
         /**
-         * @brief The constructor for MagicDungeonLevel accepting a string containing the name of the MagicDungeonLevel and its width and height.
-         * @param name   The name of the MagicDungeonLevel.
-         * @param width  The width of the MagicDungeonLevel.
-         * @param height The height of the MagicDungeonLevel.
+         * @brief The constructor for MagicalDungeonLevel accepting a string containing the name of the MagicalDungeonLevel and its width and height.
+         * @param name   The name of the MagicalDungeonLevel.
+         * @param width  The width of the MagicalDungeonLevel.
+         * @param height The height of the MagicalDungeonLevel.
          */
         MagicalDungeonLevel(const std::string &name, int width, int height);
         virtual ~MagicalDungeonLevel() = default;

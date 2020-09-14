@@ -22,13 +22,13 @@ namespace core::creatures {
         virtual std::shared_ptr<AbstractCreature> clone() const = 0;
 
         /**
-         * @brief Returns the name of this Abstract Creature.
-         * @return The name of this Abstract Creature.
+         * @brief Returns the name of this AbstractCreature.
+         * @return The name of this AbstractCreature.
          */
         std::string name() const;
 
         /**
-         * @brief Returns the display character for this Abstract Creature in the dungeon view.
+         * @brief Returns the display character for this AbstractCreature in the dungeon view.
          * @return The display character for this Abstract Creature.
          */
         char displayCharacter() const;

@@ -14,8 +14,8 @@ namespace core::dungeon::common {
         virtual ~LockedDoor() = default;
 
         /**
-         * @brief Returns the description of this doorway.
-         * @return Returns the description of this doorway.
+         * @brief Returns the description of this Doorway.
+         * @return Returns the description of this Doorway.
          */
         virtual std::string description() const override;
 

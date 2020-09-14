@@ -14,8 +14,8 @@ namespace core::dungeon::common {
         virtual ~OneWayDoor() = default;
 
         /**
-         * @brief Returns the description of this doorway.
-         * @return Returns the description of this doorway.
+         * @brief Returns the description of this Doorway.
+         * @return Returns the description of this Doorway.
          */
         virtual std::string description() const override;
 
@@ -23,7 +23,7 @@ namespace core::dungeon::common {
          * @brief Returns the character displayed in the dungeon view output.
          *
          * The character returned by this function is dependant on the direction
-         * in the parent Room that this doorway occupies.
+         * in the parent Room that this Doorway occupies.
          *
          * @return The character displayed in the dungeon view output.
          */

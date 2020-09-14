@@ -6,7 +6,7 @@
 
 namespace core::items {
     /**
-     * @brief The Item class is the abstract base for items that can be used by the player.
+     * @brief The Item class is the abstract base for Items that can be used by the player.
      */
     class Item
     {

@@ -5,7 +5,7 @@
 
 namespace core::dungeon::basic {
     /**
-     * @brief The RockWall class represents a rock Wall exclusive to BasigDungeonLevel.
+     * @brief The RockWall class represents a rock Wall exclusive to BasicDungeonLevel.
      */
     class RockWall : public Wall
     {

@@ -13,11 +13,17 @@ namespace core::dungeon {
     class DungeonLevel
     {
     public:
+        /**
+         * @brief The constructor for DungeonLevel accepting a string containing the name of the DungeonLevel and its width and height.
+         * @param name   The name of the DungeonLevel.
+         * @param width  The width of the DungeonLevel.
+         * @param height The height of the DungeonLevel.
+         */
         DungeonLevel(const std::string &name, int width, int height);
         virtual ~DungeonLevel() = default;
 
         /**
-         * @brief Adds the given Room to the Dungeon Level.
+         * @brief Adds the given Room to the DungeonLevel.
          * @param room The Room to be added.
          * @return True if the room was successfully added, false otherwise.
          */
@@ -31,26 +37,26 @@ namespace core::dungeon {
         std::shared_ptr<Room> retrieveRoom(int id);
 
         /**
-         * @brief Returns the width of this Dungeon Level.
-         * @return The width of this Dungeon Level.
+         * @brief Returns the width of this DungeonLevel.
+         * @return The width of this DungeonLevel.
          */
         int width() const;
 
         /**
-         * @brief Returns the height of this Dungeon Level.
-         * @return The height of this Dungeon Level.
+         * @brief Returns the height of this DungeonLevel.
+         * @return The height of this DungeonLevel.
          */
         int height() const;
 
         /**
-         * @brief Returns the number of rooms in this Dungeon Level.
-         * @return The number of rooms in this Dungeon Level.
+         * @brief Returns the number of rooms in this DungeonLevel.
+         * @return The number of rooms in this DungeonLevel.
          */
         int numberOfRooms() const;
 
         /**
-         * @brief Returns the name of this Dungeon Level.
-         * @return The name of this Dungeon Level.
+         * @brief Returns the name of this DungeonLevel.
+         * @return The name of this DungeonLevel.
          */
         std::string name() const;
 
@@ -61,9 +67,9 @@ namespace core::dungeon {
         virtual std::string description() const = 0;
 
         /**
-         * @brief Generates a visual display of the current Dungeon Level.
+         * @brief Generates a visual display of the current DungeonLevel.
          *
-         * Generate a display of the Rooms within this Dungeon Level and
+         * Generate a display of the Rooms within this DungeonLevel and
          * the items/monsters within each. Connections between Doorways are
          * highlighted by dashed lines.
          *

@@ -11,7 +11,7 @@ namespace core::dungeon::magical {
     {
     public:
         /**
-         * @brief The constructor for the MagicDungeonLevelBuilder. Generates the allowed Items and Creatures for MagicDungeonLevels.
+         * @brief The constructor for the MagicDungeonLevelBuilder. Generates the allowed Items and Creatures for MagicalDungeonLevel.
          */
         MagicalDungeonLevelBuilder();
         virtual ~MagicalDungeonLevelBuilder() = default;
@@ -25,7 +25,7 @@ namespace core::dungeon::magical {
         virtual void buildDungeonLevel(const std::string &name, int width, int height) override;
 
         /**
-         * @brief Builds a new Room and adds it to the current Magical Dungeon Level.
+         * @brief Builds a new Room and adds it to the current MagicalDungeonLevel.
          * @param id The ID of the new Room being built.
          * @return The Room that was just built.
          */

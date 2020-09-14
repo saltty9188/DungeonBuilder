@@ -39,8 +39,8 @@ namespace core::dungeon {
         int id() const;
 
         /**
-         * @brief Returns the item contained within this room.
-         * @return The item contained within this room.
+         * @brief Returns the Item contained within this room.
+         * @return The Item contained within this room.
          */
         std::shared_ptr<Item> item() const;
 
@@ -63,7 +63,7 @@ namespace core::dungeon {
         void setCreature(const std::shared_ptr<AbstractCreature> &newCreature);
 
         /**
-         * @brief Enumeration defining the four edges of anu given Room.
+         * @brief Enumeration defining the four edges of any given Room.
          */
         enum class Direction : unsigned {North, South, East, West};
 
@@ -97,7 +97,7 @@ namespace core::dungeon {
     };
 
     /**
-     * @brief Overloaded ostream out operator that outputs the supplied level's description.
+     * @brief Overloaded ostream out operator that outputs the supplied Room's description.
      * @param out The ostream object being output to.
      * @param room The room being described.
      * @return The ostream object that was output to.

@@ -10,12 +10,6 @@ namespace core::dungeon {
     class Doorway : public RoomEdge
     {
     public:
-        /**
-         * @brief The constructor for DungeonLevel accepting a string containing the name of the DungeonLevel and its width and height.
-         * @param name   The name of the DungeonLevel.
-         * @param width  The width of the DungeonLevel.
-         * @param height The height of the DungeonLevel.
-         */
         Doorway();
         virtual ~Doorway() = default;
 

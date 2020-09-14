@@ -28,7 +28,7 @@ using namespace core::items;
         virtual void buildDungeonLevel(const std::string &name, int width, int height);
 
         /**
-         * @brief Builds a new Room and adds it to the current Magical Dungeon Level.
+         * @brief Builds a new Room and adds it to the current DungeonLevel.
          * @param id The ID of the new Room being built.
          * @return The Room that was just built.
          */
@@ -84,7 +84,7 @@ using namespace core::items;
         virtual void buildItem(const std::shared_ptr<Room> &room);
 
         /**
-         * @brief Builds a clone of a random Abstract Creature and inserts it into the chosen Room.
+         * @brief Builds a clone of a random AbstractCreature and inserts it into the chosen Room.
          * @param room The Room to receive the Creature.
          */
         virtual void buildCreature(const std::shared_ptr<Room> &room);

@@ -11,7 +11,7 @@ namespace core::dungeon::magical {
     {
     public:
         /**
-         * @brief The constructor for EnchantedLibrary that accepts the integer ID of the Room and sets all the RoomEdges to MagicWalls.
+         * @brief The constructor for EnchantedLibrary that accepts the integer ID of the Room and sets all the RoomEdge to MagicWall.
          * @param id The ID of the Room.
          */
         EnchantedLibrary(int id);

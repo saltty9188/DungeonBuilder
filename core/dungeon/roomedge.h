@@ -39,8 +39,8 @@ namespace core::dungeon {
         void setDirection(const Room::Direction &direction);
     protected:
         /**
-         * @brief Returns the direction this RoomEdge occupies.
-         * @return The direction this RoomEdge occupies.
+         * @brief Returns the Direction this RoomEdge occupies.
+         * @return The Direction this RoomEdge occupies.
          */
         Room::Direction direction() const;
     private:

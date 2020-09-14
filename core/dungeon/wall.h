@@ -20,12 +20,12 @@ namespace core::dungeon {
         virtual bool isPassage() const override;
 
         /**
-         * @brief Returns the character displayed by this wall when in the dungeon view menu.
+         * @brief Returns the character displayed by this Wall when in the dungeon view menu.
          *
-         * Character returned is determined by the direction this wall is facing within
+         * Character returned is determined by the Direction this Wall is facing within
          * its enclosing Room.
          *
-         * @return The character displayed by this wall when in the dungeon view menu.
+         * @return The character displayed by this Wall when in the dungeon view menu.
          */
         virtual char displayCharacter() const override;
     };

@@ -24,7 +24,7 @@ namespace core {
         ~Game();
 
         /**
-         * @brief Sets the type of DungeonLevel to be built by the random generator..
+         * @brief Sets the type of DungeonLevel to be built by the random generator.
          * @param builder The new DungeonLevelBuilder.
          */
         void setDungeonType(std::shared_ptr<dungeon::DungeonLevelBuilder> builder);
@@ -87,9 +87,9 @@ namespace core {
         dungeon::Room::Direction randomDirection(const std::vector<dungeon::Room::Direction> &directions) const;
 
         /**
-         * @brief Returns whether or the supplied Room is at the edge of the Dungeon Level.
+         * @brief Returns whether or the supplied Room is at the edge of the DungeonLevel.
          *
-         * Returns whether or the supplied Room is at the edge of the Dungeon Level. The edge of the
+         * Returns whether or the supplied Room is at the edge of the DungeonLevel. The edge of the
          * dungeon being checked is determined by the dungeonEdge parameter.
          *
          * @param dungeonEdge The edge of the dungeon being checked.
@@ -102,10 +102,10 @@ namespace core {
         bool hasEntrance(const dungeon::Room &room) const;
 
         /**
-         * @brief Returns a random Move Constraint.
-         * @param originConstraint Set to true if the Constraint is for the origin, constraint is
+         * @brief Returns a random MoveConstraint.
+         * @param originConstraint Set to true if the MoveConstraint is for the origin, the MoveConstraint is
          *                         for the destination if set to false.
-         * @return A random Move Constraint.
+         * @return A random MoveConstraint.
          */
         dungeon::DungeonLevelBuilder::MoveContraints randomConstraint(bool originConstraint) const;
         int doorCount(const dungeon::Room &room, bool includeEntranceExit) const;

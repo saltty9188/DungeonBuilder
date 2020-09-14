@@ -11,7 +11,7 @@ namespace core::dungeon::magical {
     {
     public:
         /**
-         * @brief The constructor for AlchemistsLaboratory that accepts the integer ID of the Room and sets all the RoomEdges to MagicWalls.
+         * @brief The constructor for AlchemistsLaboratory that accepts the integer ID of the Room and sets all the RoomEdge to MagicWall.
          * @param id The ID of the Room.
          */
         AlchemistsLaboratory(int id);
