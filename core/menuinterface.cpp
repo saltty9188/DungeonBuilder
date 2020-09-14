@@ -63,14 +63,26 @@ void MenuInterface::displayMainMenu() const {
 }
 
 void MenuInterface::generateRandomDungeon() const {
-    // Prompt for the user to enter the level name.
-    _display << "\nWhat would you like to call the level?" << std::endl;
-    std::string levelName;
-    // Ignore newline character
-    _input.ignore();
-    std::getline (_input, levelName);
-
     bool selecting{true};
+    std::string levelName;
+
+    // Ignore newline character for the first time a name is entered
+    _input.ignore();
+
+    while(selecting) {
+        // Prompt for the user to enter the level name.
+        _display << "\nWhat would you like to call the level?" << std::endl;
+
+
+        std::getline (_input, levelName);
+        if(levelName.empty()) {
+            _display << "\nDungeon name cannot be empty." << std::endl;
+        } else {
+            selecting = false;
+        }
+    }
+
+    selecting = true;
     int rows{0};
     // Loop the prompt for the amount of rows until the user inputs a valid number.
     while(selecting) {
