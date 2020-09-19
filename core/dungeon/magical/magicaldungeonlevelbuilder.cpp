@@ -45,7 +45,7 @@ void MagicalDungeonLevelBuilder::buildDungeonLevel(const std::string &name, int 
 }
 
 std::shared_ptr<Room> MagicalDungeonLevelBuilder::buildRoom(int id) {
-    if(((int) (core::Game::instance().randomDouble() * 10)) % 4 == 0) {
+    if((int(core::Game::instance().randomDouble() * 10)) % 4 == 0) {
         getDungeonLevel()->addRoom(std::make_shared<AlchemistsLaboratory>(id));
     } else {
         getDungeonLevel()->addRoom(std::make_shared<EnchantedLibrary>(id));

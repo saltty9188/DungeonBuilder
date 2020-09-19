@@ -44,7 +44,7 @@ void BasicDungeonLevelBuilder::buildDungeonLevel(const std::string &name, int wi
 }
 
 std::shared_ptr<Room> BasicDungeonLevelBuilder::buildRoom(int id) {
-    if(((int) (core::Game::instance().randomDouble() * 10)) % 4 == 0) {
+    if((int(core::Game::instance().randomDouble() * 10)) % 4 == 0) {
         getDungeonLevel()->addRoom(std::make_shared<QuartzChamber>(id));
     } else {
         getDungeonLevel()->addRoom(std::make_shared<RockChamber>(id));

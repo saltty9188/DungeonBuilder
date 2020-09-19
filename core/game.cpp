@@ -104,7 +104,7 @@ void Game::createRandomLevel(const std::string &name, int width, int height) {
         }
 
         // Add entrance and exit
-        int entranceIndex{(int) (randomDouble() * width) + 1};
+        int entranceIndex{int(randomDouble() * width) + 1};
         std::vector<Room::Direction> allowedDirections{Room::Direction::North};
         // top left corner or top right corner
         if(isEdge(Room::Direction::West, *_builder->getDungeonLevel()->retrieveRoom(entranceIndex))) {
@@ -116,7 +116,7 @@ void Game::createRandomLevel(const std::string &name, int width, int height) {
 
         _builder->buildEntrance(_builder->getDungeonLevel()->retrieveRoom(entranceIndex), randomDirection(allowedDirections));
 
-        int exitIndex{(int) (randomDouble() * width) + (width * height - width + 1)};
+        int exitIndex{int(randomDouble() * width) + (width * height - width + 1)};
         allowedDirections = {Room::Direction::South};
         // Allow east or west exits if its on one of the corners AND the entrance hasn't been placed there already
         if(isEdge(Room::Direction::West, *_builder->getDungeonLevel()->retrieveRoom(exitIndex)) &&     
@@ -180,7 +180,7 @@ void Game::createRandomLevel(const std::string &name, int width, int height) {
 
                 // 25% chance for another door and then 12% chance for a door after that (if there are available edges)
                 int chanceOfNewDoor{25};
-                int randomNumber{(int) (randomDouble() * 100)};
+                int randomNumber{int(randomDouble() * 100)};
                 while(randomNumber < chanceOfNewDoor && availableEdges(*_builder->getDungeonLevel()->retrieveRoom(i)).size() > 0) {
                     doorDirection = randomDirection(availableEdges(*_builder->getDungeonLevel()->retrieveRoom(i)));
                     switch (doorDirection) {
@@ -210,7 +210,7 @@ void Game::createRandomLevel(const std::string &name, int width, int height) {
                     }
 
                     chanceOfNewDoor = 12;
-                    randomNumber = (int) (randomDouble() * 100);
+                    randomNumber = int(randomDouble() * 100);
                 }
             }
 
@@ -220,12 +220,12 @@ void Game::createRandomLevel(const std::string &name, int width, int height) {
                 _builder->buildCreature(_builder->getDungeonLevel()->retrieveRoom(i));
 
             } else if(!hasEntrance(*_builder->getDungeonLevel()->retrieveRoom(i))) {
-                int randomNumber{(int)(randomDouble() * 100)};
+                int randomNumber{int(randomDouble() * 100)};
                 if(randomNumber < 25) {
                     _builder->buildCreature(_builder->getDungeonLevel()->retrieveRoom(i));
                 }
 
-                randomNumber = (int)(randomDouble() * 100);
+                randomNumber = int(randomDouble() * 100);
                 if(randomNumber < 35) {
                     _builder->buildItem(_builder->getDungeonLevel()->retrieveRoom(i));
                 }
@@ -238,7 +238,7 @@ void Game::createRandomLevel(const std::string &name, int width, int height) {
 }
 
 Room::Direction Game::randomDirection(const std::vector<Room::Direction> &directions) const {
-    int randomDirection{(int)(randomDouble() * directions.size())};
+    int randomDirection{int(randomDouble() * directions.size())};
     return directions[randomDirection];
 }
 
@@ -310,7 +310,7 @@ bool Game::hasEntrance(const dungeon::Room &room) const {
 }
 
 DungeonLevelBuilder::MoveContraints Game::randomConstraint(bool originConstraint) const {
-    int randomNumber{(int) (randomDouble() * 100)};
+    int randomNumber{int(randomDouble() * 100)};
     if(randomNumber < 40) {
         return DungeonLevelBuilder::MoveContraints::None;
     } else if (randomNumber >= 40 && randomNumber < 70) {

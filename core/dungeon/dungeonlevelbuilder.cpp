@@ -57,19 +57,19 @@ void DungeonLevelBuilder::insertCreature(const std::shared_ptr<AbstractCreature>
 }
 
 std::shared_ptr<Item> DungeonLevelBuilder::randomItem() const{
-    int itemType = (int) (core::Game::instance().randomDouble() * 100);
+    int itemType = int(core::Game::instance().randomDouble() * 100);
     // 65% chance the item is a consumable
     if(itemType < 65) {
-        int randomIndex = (int)(core::Game::instance().randomDouble() * _prototypeConsumables.size());
+        int randomIndex = int(core::Game::instance().randomDouble() * _prototypeConsumables.size());
         return _prototypeConsumables[randomIndex];
     } else {
-        int randomIndex = (int)(core::Game::instance().randomDouble() * _prototypeWeapons.size());
+        int randomIndex = int(core::Game::instance().randomDouble() * _prototypeWeapons.size());
         return _prototypeWeapons[randomIndex];
     }
 }
 
 std::shared_ptr<AbstractCreature> DungeonLevelBuilder::randomCreature() const {
-    int randomIndex = (int)(core::Game::instance().randomDouble() * _prototypeCreatures.size());
+    int randomIndex = int(core::Game::instance().randomDouble() * _prototypeCreatures.size());
     return _prototypeCreatures[randomIndex];
 }
 
